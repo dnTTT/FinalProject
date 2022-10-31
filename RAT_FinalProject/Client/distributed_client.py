@@ -1,6 +1,12 @@
 import socket
+import lz4.frame
 from getmac import get_mac_address as gma
 import random
+from screeninfo import get_monitors
+from socket import socket
+from threading import Thread
+from mss import mss
+
 
 HOST = "127.0.0.1"  # The server's hostname or IP address
 PORT = 65432  # The port used by the server
@@ -40,8 +46,69 @@ def send_computer_information(running_port):
         s.sendall(encoded_data)
         data = s.recv(1024)  # Close connection
 
+
+def get_screen_width_height():
+    width = ""
+    height = ""
+    for monitor in get_monitors():
+        #print(str(monitor))
+        if str(monitor.is_primary) == "False":
+            width = monitor.width
+            height = monitor.height
+
+    return width, height
+
+def retreive_screen(conn, width, height):
+    with mss() as mss_instance:
+        recording_area = {'top': 0, 'left': 0, 'width': width, 'height': height}
+        # Retrieve monitor instead of a specific area
+        monitor_1 = mss_instance.monitors[2]
+
+        while "recording":
+            # Grab the screen with the dimensions of the recording_area
+            image = mss_instance.grab(monitor_1)
+
+            # Compresses the image data with lz4 compressing algorithm
+            pixels = lz4.frame.compress(image.rgb)
+
+            # Send the size of the pixels length
+            size = len(pixels)
+            size_len = (size.bit_length() + 7) // 8
+            conn.send(bytes([size_len]))
+
+            # Send the actual pixels length
+            size_bytes = size.to_bytes(size_len, 'big')
+            conn.send(size_bytes)
+
+            # Send pixels
+            conn.sendall(pixels)
+
+
+def socket_listening(host, port):
+    sock = socket()
+    sock.bind((host, port))
+    try:
+        sock.listen(5)
+        print('Server started.')
+
+        while 'connected':
+            conn, addr = sock.accept()
+            print('Client connected IP:', addr)
+            width, height = get_screen_width_height()
+            thread = Thread(target=retreive_screen, args=(conn, width, height))
+            thread.start()
+    finally:
+        sock.close()
+
 def main():
-    start_listening_for_commands()
+    #start_listening_for_commands()
+    #width, height = get_screen_width_height()
+    socket_listening("localhost", 5000)
+    #print(str(width))
+    #print(str(height))
+
+
+
 
 if __name__ == '__main__':
     main()

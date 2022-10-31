@@ -1,6 +1,8 @@
 import socket
 from Handler.database import Database
-
+from PyQt5 import QtWidgets, uic
+import sys
+from UI.Main import MainWindow
 
 HOST = "127.0.0.1"  # Standard loopback interface address (localhost)
 PORT = 65432  # Port to listen on (non-privileged ports are > 1023)
@@ -40,5 +42,16 @@ if __name__ == '__main__':
     Database.initialize()
     data_object = create_object_for_database(hostname, ip_address, running_port, mac_address)
     insert_on_database("Clients_Collection", data_object)
+
+    app = QtWidgets.QApplication(sys.argv)
+    populate_list_data = Database.get_all("Clients_Collection")
+    data_list = []
+    for x in populate_list_data:
+        data_list.append(x)
+
+    window = MainWindow()
+
+    window.load_data_to_table(data_list)
+    app.exec_()
 
 

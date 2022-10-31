@@ -23,17 +23,27 @@ class Database(object):
     @staticmethod
     def find(collection, query):
         Database.COLLECTION = Database.DATABASE[collection]
-        return Database.COLLECTION.find(query)
+        length = Database.COLLECTION.count_documents(query)
+        return length, Database.COLLECTION.find(query)
+
+    @staticmethod
+    def update(filter, data):
+        new_data = {"$set": data}
+        Database.COLLECTION.update_one(filter, new_data)
+
+    @staticmethod
+    def get_all(collection):
+        Database.COLLECTION = Database.DATABASE[collection]
+        return Database.COLLECTION.find()
 
     @staticmethod
     def new_connection(collection, data):
         find_query_host_ip = {"Hostname": data["Hostname"], "Ip_address": data["Ip_address"]}
-        document = Database.find(collection, find_query_host_ip)
-
-
-        #Database.insert(collection, data)
-        for x in document:
-            print(x)
+        length, documents = Database.find(collection, find_query_host_ip)
+        if length > 0:
+            Database.update(find_query_host_ip, data)
+        else:
+            Database.insert(collection, data)
 
 
 #if __name__ == '__main__':
