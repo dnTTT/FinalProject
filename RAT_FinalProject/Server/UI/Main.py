@@ -4,6 +4,9 @@ import sys
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QTableWidgetItem, QMenu, QAction
 from PyQt5.uic.properties import QtGui
+import UI.DesktopViewer
+
+from Server.UI.DesktopViewer import DesktopViewer
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -16,9 +19,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.computerInfoList.setColumnWidth(3, 135)
         self.computerInfoList.setColumnWidth(5, 135)
 
-        #self.computerInfoList.setContextMenuPolicy(Qt.CustomContextMenu)
-        #self.computerInfoList.customContextMenuRequested.connect(self.right_click_context_menu)
-
+        # self.computerInfoList.setContextMenuPolicy(Qt.CustomContextMenu)
+        # self.computerInfoList.customContextMenuRequested.connect(self.right_click_context_menu)
 
         self.show()
 
@@ -44,12 +46,14 @@ class MainWindow(QtWidgets.QMainWindow):
             self.computerInfoList.setItem(row, 1, QtWidgets.QTableWidgetItem(client["Ip_address"]))
             self.computerInfoList.setItem(row, 2, QtWidgets.QTableWidgetItem(client["Running_port"]))
             self.computerInfoList.setItem(row, 3, QtWidgets.QTableWidgetItem(client["Mac_address"]))
+            self.computerInfoList.setItem(row, 4, QtWidgets.QTableWidgetItem(client["Width"]))
+            self.computerInfoList.setItem(row, 5, QtWidgets.QTableWidgetItem(client["Height"]))
+
             row += 1
 
     def right_click_context_menu(self, pos):
         selected_row = self.get_item_selected()
         if selected_row != None:
-            print(self.computerInfoList.item(selected_row, 0).text())
             contextMenu = QMenu()
             remote_desktop = contextMenu.addAction("Remote desktop")
             run_command_line = contextMenu.addAction("Command line")
@@ -57,6 +61,14 @@ class MainWindow(QtWidgets.QMainWindow):
             remote_file_explorer = contextMenu.addAction("Remote file explorer")
             action = contextMenu.exec_(self.mapToParent(pos))
 
+            """ Getting info needed for the remote desktop viewer (ipaddress, port, width, height) """
+
+            ipaddress = self.computerInfoList.item(selected_row, 1).text()
+            port = self.computerInfoList.item(selected_row, 2).text()
+            width = self.computerInfoList.item(selected_row, 4).text()
+            height = self.computerInfoList.item(selected_row, 5).text()
+            if action == remote_desktop:
+                dv = DesktopViewer(ipaddress, port, width, height)
 
 
     def get_item_selected(self):

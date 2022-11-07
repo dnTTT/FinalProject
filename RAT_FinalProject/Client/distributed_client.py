@@ -3,12 +3,11 @@ import lz4.frame
 from getmac import get_mac_address as gma
 import random
 from screeninfo import get_monitors
-from socket import socket
 from threading import Thread
 from mss import mss
 
 
-HOST = "127.0.0.1"  # The server's hostname or IP address
+HOST = "192.168.0.129"  # The server's hostname or IP address
 PORT = 65432  # The port used by the server
 
 list_of_ports = range(20000, 60000)
@@ -29,9 +28,8 @@ def is_port_in_use(port: int) -> bool:
         return s.connect_ex(('localhost', port)) == 0
 
 
-def start_listening_for_commands():
-    running_port = return_not_used_port()
-    send_computer_information(running_port)
+def start_listening_for_commands(running_port):
+   send_computer_information(running_port)
 
 
 def send_computer_information(running_port):
@@ -41,7 +39,8 @@ def send_computer_information(running_port):
         # Wait to see if workes with outside lan connection
         ip_address = socket.gethostbyname(hostname)
         mac_address = gma()
-        data_to_send = [hostname, ip_address, str(running_port), mac_address]
+        width, height = get_screen_width_height()
+        data_to_send = [hostname, ip_address, str(running_port), mac_address, str(width), str(height)]
         encoded_data = '||'.join(data_to_send).encode()
         s.sendall(encoded_data)
         data = s.recv(1024)  # Close connection
@@ -52,6 +51,7 @@ def get_screen_width_height():
     height = ""
     for monitor in get_monitors():
         #print(str(monitor))
+        # FOR TESTING THE PRIMARY MONITOR IS FALSE ( SECOND SCREEN )
         if str(monitor.is_primary) == "False":
             width = monitor.width
             height = monitor.height
@@ -85,27 +85,30 @@ def retreive_screen(conn, width, height):
 
 
 def socket_listening(host, port):
-    sock = socket()
-    sock.bind((host, port))
-    try:
-        sock.listen(5)
-        print('Server started.')
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.bind((host, port))
 
-        while 'connected':
-            conn, addr = sock.accept()
-            print('Client connected IP:', addr)
-            width, height = get_screen_width_height()
-            thread = Thread(target=retreive_screen, args=(conn, width, height))
-            thread.start()
-    finally:
-        sock.close()
+        try:
+            sock.listen(5)
+            print('Server started.')
+
+            while 'connected':
+                conn, addr = sock.accept()
+                print('Client connected IP:', addr)
+                width, height = get_screen_width_height()
+                thread = Thread(target=retreive_screen, args=(conn, width, height))
+                thread.start()
+        finally:
+            sock.close()
 
 def main():
-    #start_listening_for_commands()
+    running_port = return_not_used_port()
+    print(running_port)
+    send_computer_information(running_port)
     #width, height = get_screen_width_height()
-    socket_listening("localhost", 5000)
-    #print(str(width))
-    #print(str(height))
+    socket_listening("192.168.0.129", running_port)
+
+
 
 
 
