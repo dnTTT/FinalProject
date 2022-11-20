@@ -10,6 +10,7 @@ from mss import mss
 HOST = "192.168.0.129"  # The server's hostname or IP address
 PORT = 65432  # The port used by the server
 
+
 list_of_ports = range(20000, 60000)
 
 def return_not_used_port():
@@ -64,7 +65,10 @@ def retreive_screen(conn, width, height):
         # Retrieve monitor instead of a specific area
         monitor_1 = mss_instance.monitors[2]
 
+
         while "recording":
+
+
             # Grab the screen with the dimensions of the recording_area
             image = mss_instance.grab(monitor_1)
 
@@ -86,6 +90,7 @@ def retreive_screen(conn, width, height):
 
 def socket_listening(host, port):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         sock.bind((host, port))
 
         try:
@@ -93,13 +98,20 @@ def socket_listening(host, port):
             print('Server started.')
 
             while 'connected':
+                if not 'connected':
+                    conn.close()
+
                 conn, addr = sock.accept()
                 print('Client connected IP:', addr)
                 width, height = get_screen_width_height()
                 thread = Thread(target=retreive_screen, args=(conn, width, height))
                 thread.start()
+
+
         finally:
-            sock.close()
+            conn.close()
+
+            #sock.close()
 
 def main():
     running_port = return_not_used_port()

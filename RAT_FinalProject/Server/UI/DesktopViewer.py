@@ -63,8 +63,11 @@ class DesktopViewer:
                     for event in pygame.event.get():
                         if event.type == pygame.QUIT:
                             watching = False
+                            pygame.quit()
                             break
-
+                    if watching == False:
+                        sock.close()
+                        break
                     # Retreive the size of the pixels length, the pixels length and pixels
                     size_len = int.from_bytes(sock.recv(1), byteorder='big')
                     size = int.from_bytes(sock.recv(size_len), byteorder='big')
