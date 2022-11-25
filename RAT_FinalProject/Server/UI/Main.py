@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import QTableWidgetItem, QMenu, QAction
 from PyQt5.uic.properties import QtGui
 import UI.DesktopViewer
 
-from Server.UI.DesktopViewer import DesktopViewer
+from UI.DesktopViewer import DesktopViewer
 
 
 class MainWindow(QtWidgets.QMainWindow):
