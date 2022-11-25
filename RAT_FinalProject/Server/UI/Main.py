@@ -7,7 +7,7 @@ from PyQt5.uic.properties import QtGui
 import UI.DesktopViewer
 
 from UI.DesktopViewer import DesktopViewer
-
+from UI.RemoteShellExec import RemoteShell
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -18,11 +18,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.computerInfoList.setColumnWidth(2, 135)
         self.computerInfoList.setColumnWidth(3, 135)
         self.computerInfoList.setColumnWidth(5, 135)
-
+        self.show()
         # self.computerInfoList.setContextMenuPolicy(Qt.CustomContextMenu)
         # self.computerInfoList.customContextMenuRequested.connect(self.right_click_context_menu)
-
-        self.show()
 
         """object = [{
             "Hostname": "hostname",
@@ -53,7 +51,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def right_click_context_menu(self, pos):
         selected_row = self.get_item_selected()
-        if selected_row != None:
+        if selected_row is not None:
             contextMenu = QMenu()
             remote_desktop = contextMenu.addAction("Remote desktop")
             run_command_line = contextMenu.addAction("Command line")
@@ -69,7 +67,9 @@ class MainWindow(QtWidgets.QMainWindow):
             height = self.computerInfoList.item(selected_row, 5).text()
             if action == remote_desktop:
                 dv = DesktopViewer(ipaddress, port, width, height)
-
+            elif action == run_command_line:
+                self.remote_window = RemoteShell()
+                self.remote_window.show()
 
     def get_item_selected(self):
         return self.computerInfoList.currentRow()

