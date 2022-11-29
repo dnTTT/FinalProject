@@ -1,0 +1,522 @@
+Description                                       ProcessId  
+
+System Idle Process                               0          
+
+System                                            4          
+
+Registry                                          240        
+
+smss.exe                                          728        
+
+csrss.exe                                         1028       
+
+wininit.exe                                       1116       
+
+csrss.exe                                         1164       
+
+services.exe                                      1188       
+
+lsass.exe                                         1196       
+
+svchost.exe                                       1328       
+
+fontdrvhost.exe                                   1356       
+
+WUDFHost.exe                                      1400       
+
+svchost.exe                                       1468       
+
+svchost.exe                                       1508       
+
+WUDFHost.exe                                      1540       
+
+winlogon.exe                                      1612       
+
+fontdrvhost.exe                                   1668       
+
+svchost.exe                                       1740       
+
+svchost.exe                                       1776       
+
+svchost.exe                                       1784       
+
+svchost.exe                                       1852       
+
+svchost.exe                                       1860       
+
+svchost.exe                                       1908       
+
+svchost.exe                                       2008       
+
+dwm.exe                                           1112       
+
+svchost.exe                                       2116       
+
+svchost.exe                                       2256       
+
+NVDisplay.Container.exe                           2272       
+
+svchost.exe                                       2372       
+
+amdfendrsr.exe                                    2384       
+
+svchost.exe                                       2392       
+
+atiesrxx.exe                                      2412       
+
+svchost.exe                                       2572       
+
+svchost.exe                                       2768       
+
+svchost.exe                                       2776       
+
+svchost.exe                                       2784       
+
+svchost.exe                                       2792       
+
+Memory Compression                                2932       
+
+svchost.exe                                       2988       
+
+svchost.exe                                       3028       
+
+svchost.exe                                       3044       
+
+svchost.exe                                       2136       
+
+svchost.exe                                       3196       
+
+svchost.exe                                       3312       
+
+WmiPrvSE.exe                                      3324       
+
+svchost.exe                                       3336       
+
+SbieSvc.exe                                       3396       
+
+svchost.exe                                       3748       
+
+svchost.exe                                       3756       
+
+svchost.exe                                       3876       
+
+svchost.exe                                       3900       
+
+spoolsv.exe                                       4008       
+
+svchost.exe                                       3440       
+
+nordvpn-service.exe                               3796       
+
+svchost.exe                                       4140       
+
+svchost.exe                                       4400       
+
+svchost.exe                                       4480       
+
+svchost.exe                                       4636       
+
+svchost.exe                                       4644       
+
+svchost.exe                                       4660       
+
+svchost.exe                                       4668       
+
+svchost.exe                                       4676       
+
+LenovoUtilityService.exe                          4696       
+
+Lenovo.Modern.ImController.exe                    4704       
+
+NordUpdateService.exe                             4712       
+
+lghub_updater.exe                                 4720       
+
+svchost.exe                                       4728       
+
+nvcontainer.exe                                   4740       
+
+UDClientService.exe                               4748       
+
+svchost.exe                                       4756       
+
+OfficeClickToRun.exe                              4764       
+
+NahimicService.exe                                4772       
+
+RtkAudUService64.exe                              4784       
+
+sqlwriter.exe                                     4792       
+
+CptService.exe                                    4812       
+
+ss_conn_service2.exe                              4828       
+
+ss_conn_service.exe                               4836       
+
+MsMpEng.exe                                       4852       
+
+mongod.exe                                        4868       
+
+svchost.exe                                       4884       
+
+svchost.exe                                       5812       
+
+svchost.exe                                       5964       
+
+AggregatorHost.exe                                6152       
+
+svchost.exe                                       6744       
+
+svchost.exe                                       6756       
+
+rundll32.exe                                      7036       
+
+svchost.exe                                       8012       
+
+svchost.exe                                       8032       
+
+svchost.exe                                       8332       
+
+svchost.exe                                       8460       
+
+NisSrv.exe                                        8904       
+
+SecurityHealthService.exe                         9208       
+
+svchost.exe                                       9096       
+
+dllhost.exe                                       9344       
+
+svchost.exe                                       9856       
+
+NVDisplay.Container.exe                           10224      
+
+atieclxx.exe                                      9656       
+
+svchost.exe                                       9852       
+
+nvcontainer.exe                                   9836       
+
+svchost.exe                                       10028      
+
+nvcontainer.exe                                   10248      
+
+SearchIndexer.exe                                 10320      
+
+sihost.exe                                        10404      
+
+svchost.exe                                       10456      
+
+svchost.exe                                       10612      
+
+taskhostw.exe                                     10996      
+
+unsecapp.exe                                      11024      
+
+svchost.exe                                       11108      
+
+svchost.exe                                       11340      
+
+explorer.exe                                      11420      
+
+ctfmon.exe                                        11436      
+
+svchost.exe                                       11508      
+
+svchost.exe                                       11852      
+
+NVIDIA Web Helper.exe                             12028      
+
+conhost.exe                                       12056      
+
+FnHotkeyUtility.exe                               12128      
+
+nvsphelper64.exe                                  12532      
+
+NVIDIA Share.exe                                  12552      
+
+NVIDIA Share.exe                                  12764      
+
+NVIDIA Share.exe                                  12856      
+
+svchost.exe                                       12976      
+
+svchost.exe                                       13228      
+
+Widgets.exe                                       13640      
+
+SearchHost.exe                                    13780      
+
+StartMenuExperienceHost.exe                       13820      
+
+RuntimeBroker.exe                                 13976      
+
+RuntimeBroker.exe                                 14112      
+
+svchost.exe                                       14360      
+
+dllhost.exe                                       14776      
+
+NahimicSvc64.exe                                  15968      
+
+NahimicSvc32.exe                                  15988      
+
+unsecapp.exe                                      16024      
+
+TextInputHost.exe                                 15644      
+
+unsecapp.exe                                      3728       
+
+ApplicationFrameHost.exe                          16808      
+
+svchost.exe                                       17216      
+
+nahimicNotifSys.exe                               17340      
+
+svchost.exe                                       1128       
+
+UserOOBEBroker.exe                                10136      
+
+WhatsApp.exe                                      9068       
+
+svchost.exe                                       12164      
+
+PhoneExperienceHost.exe                           15244      
+
+RuntimeBroker.exe                                 15312      
+
+RuntimeBroker.exe                                 10476      
+
+SecurityHealthSystray.exe                         18280      
+
+RtkAudUService64.exe                              18428      
+
+Encrypto.Service.exe                              13852      
+
+SgrmBroker.exe                                    9916       
+
+svchost.exe                                       5100       
+
+svchost.exe                                       6372       
+
+Lenovo.Modern.ImController.PluginHost.Device.exe  6136       
+
+LenovoVantageService.exe                          11704      
+
+LenovoVantage-(VantageCoreAddin).exe              18176      
+
+LenovoVantage-(LenovoGamingSystemAddin).exe       18052      
+
+LenovoVantage-(DeviceSettingsSystemAddin).exe     12684      
+
+LenovoVantage-(LenovoServiceBridgeAddin).exe      5348       
+
+GitHubDesktop.exe                                 10288      
+
+GitHubDesktop.exe                                 6124       
+
+GitHubDesktop.exe                                 18136      
+
+GitHubDesktop.exe                                 4252       
+
+vgtray.exe                                        7984       
+
+svchost.exe                                       6736       
+
+svchost.exe                                       19608      
+
+MpCopyAccelerator.exe                             9612       
+
+gamingservices.exe                                14624      
+
+gamingservicesnet.exe                             6800       
+
+svchost.exe                                       1504       
+
+gameinputsvc.exe                                  20376      
+
+gameinputsvc.exe                                  2360       
+
+svchost.exe                                       7692       
+
+svchost.exe                                       2248       
+
+Video.UI.exe                                      11456      
+
+RuntimeBroker.exe                                 20884      
+
+explorer.exe                                      18020      
+
+firefox.exe                                       8656       
+
+firefox.exe                                       21528      
+
+firefox.exe                                       21728      
+
+firefox.exe                                       2980       
+
+firefox.exe                                       21236      
+
+firefox.exe                                       10000      
+
+firefox.exe                                       7576       
+
+firefox.exe                                       10588      
+
+audiodg.exe                                       21116      
+
+SearchProtocolHost.exe                            18248      
+
+ShellExperienceHost.exe                           20892      
+
+RuntimeBroker.exe                                 14640      
+
+SystemSettingsBroker.exe                          5148       
+
+svchost.exe                                       14788      
+
+svchost.exe                                       14160      
+
+svchost.exe                                       13380      
+
+firefox.exe                                       23476      
+
+firefox.exe                                       23484      
+
+taskhostw.exe                                     22276      
+
+firefox.exe                                       25348      
+
+dllhost.exe                                       27488      
+
+pycharm64.exe                                     25020      
+
+fsnotifier.exe                                    1844       
+
+conhost.exe                                       22260      
+
+conhost.exe                                       27176      
+
+powershell.exe                                    5788       
+
+firefox.exe                                       12096      
+
+firefox.exe                                       11544      
+
+firefox.exe                                       14464      
+
+firefox.exe                                       25888      
+
+firefox.exe                                       2524       
+
+firefox.exe                                       24076      
+
+firefox.exe                                       2840       
+
+svchost.exe                                       25256      
+
+firefox.exe                                       26128      
+
+firefox.exe                                       15772      
+
+firefox.exe                                       24084      
+
+firefox.exe                                       19012      
+
+firefox.exe                                       23412      
+
+firefox.exe                                       27196      
+
+firefox.exe                                       26528      
+
+Discord.exe                                       11472      
+
+Discord.exe                                       19872      
+
+Discord.exe                                       7528       
+
+Discord.exe                                       5688       
+
+Discord.exe                                       3284       
+
+steam.exe                                         15080      
+
+Discord.exe                                       26340      
+
+steamwebhelper.exe                                1388       
+
+steamservice.exe                                  3944       
+
+steamwebhelper.exe                                24932      
+
+steamwebhelper.exe                                27580      
+
+steamwebhelper.exe                                9340       
+
+steamwebhelper.exe                                16768      
+
+steamwebhelper.exe                                23852      
+
+steamwebhelper.exe                                7768       
+
+explorer.exe                                      28760      
+
+SearchFilterHost.exe                              26092      
+
+firefox.exe                                       2716       
+
+firefox.exe                                       29288      
+
+firefox.exe                                       29584      
+
+firefox.exe                                       28048      
+
+python.exe                                        22168      
+
+conhost.exe                                       9928       
+
+python.exe                                        26804      
+
+jcef_helper.exe                                   26300      
+
+jcef_helper.exe                                   7256       
+
+firefox.exe                                       11364      
+
+firefox.exe                                       19076      
+
+firefox.exe                                       25412      
+
+svchost.exe                                       22316      
+
+WmiPrvSE.exe                                      28968      
+
+svchost.exe                                       8080       
+
+smartscreen.exe                                   21604      
+
+firefox.exe                                       28680      
+
+svchost.exe                                       23108      
+
+svchost.exe                                       22340      
+
+python.exe                                        28868      
+
+conhost.exe                                       4472       
+
+python.exe                                        2960       
+
+python.exe                                        3848       
+
+conhost.exe                                       28312      
+
+python.exe                                        25472      
+
+cmd.exe                                           4652       
+
+WMIC.exe                                          4160       
+
+
+

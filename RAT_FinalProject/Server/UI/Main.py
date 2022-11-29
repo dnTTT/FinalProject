@@ -8,6 +8,7 @@ import UI.DesktopViewer
 
 from UI.DesktopViewer import DesktopViewer
 from UI.RemoteShellExec import RemoteShell
+from process_list import ProcessList
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -70,6 +71,9 @@ class MainWindow(QtWidgets.QMainWindow):
             elif action == run_command_line:
                 self.remote_window = RemoteShell()
                 self.remote_window.show()
+            elif action == process_list:
+                processList = ProcessList()
+                processList.write_file()
 
     def get_item_selected(self):
         return self.computerInfoList.currentRow()

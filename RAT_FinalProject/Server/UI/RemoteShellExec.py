@@ -12,8 +12,19 @@ class RemoteShell(QtWidgets.QWidget):
         self.show()
         self.txtCommand.returnPressed.connect(self.update_text_field_result)
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.s.connect(("192.168.1.25", 6666))
+        self.s.connect(("192.168.2.75", 6666))
         self.data = ""
+
+    def recvall(self, conn, length):
+        """ Retrieve all bytes. """
+
+        buf = b''
+        while len(buf) < length:
+            data = conn.recv(length - len(buf))
+            if not data:
+                return data
+            buf += data
+        return buf
 
     def update_text_field_result(self):
         command = self.txtCommand.text()
@@ -22,11 +33,15 @@ class RemoteShell(QtWidgets.QWidget):
             if command == "EXIT":
                 sys.exit()
             else:
-                self.txtResult.setPlainText(f"Sending command: {command}")
+                self.txtResult.append(f"Sending command: {command}")
                 encoded_data = command.encode()
                 self.s.sendall(encoded_data)
 
-                self.data = self.s.recv(1024)
+                #self.data = self.s.recv(1024)
+
+                size_len = int.from_bytes(self.s.recv(1), byteorder='big')
+                size = int.from_bytes(self.s.recv(size_len), byteorder='big')
+                self.data = self.recvall(self.s, size)
 
                 #print(self.data)
             if self.data != "":

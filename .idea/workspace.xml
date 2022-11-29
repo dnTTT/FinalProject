@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6b425db2-9550-4944-8882-e3a8dcec1532" name="Changes" comment="" />
+    <list default="true" id="6b425db2-9550-4944-8882-e3a8dcec1532" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/process_list.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Rat_FinalProject_Repo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Rat_FinalProject_Repo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Client/distributed_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Client/distributed_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/RemoteShellExec.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/RemoteShellExec.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/run_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/run_server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/process_list.py" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,12 +35,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Shw/Documents/GitHub/Rat_FinalProject_Repo&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Shw\Documents\GitHub\Rat_FinalProject_Repo\RAT_FinalProject\Server" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.process_list">
+  <component name="RunManager" selected="Python.distributed_client">
     <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Rat_FinalProject_Repo" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -106,7 +123,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RAT_FinalProject/process_list.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Shw\Documents\GitHub\Rat_FinalProject_Repo\RAT_FinalProject\Server\process_list.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -138,11 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.process_list" />
         <item itemvalue="Python.distributed_client" />
         <item itemvalue="Python.run_server" />
-        <item itemvalue="Python.RemoteShellExec" />
         <item itemvalue="Python.Main" />
+        <item itemvalue="Python.process_list" />
+        <item itemvalue="Python.RemoteShellExec" />
       </list>
     </recent_temporary>
   </component>
@@ -157,13 +174,24 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/RAT_FinalProject/Server/UI/RemoteShellExec.py</url>
-          <line>18</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/RAT_FinalProject/Server/process_list.py</url>
+          <line>21</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

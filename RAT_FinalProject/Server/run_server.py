@@ -4,7 +4,7 @@ from PyQt5 import QtWidgets, uic
 import sys
 from UI.Main import MainWindow
 
-HOST = "192.168.1.25"  # Standard loopback interface address (localhost)
+HOST = "192.168.2.75"  # Standard loopback interface address (localhost)
 PORT = 65432  # Port to listen on (non-privileged ports are > 1023)
 
 def listen_to_computer_info():

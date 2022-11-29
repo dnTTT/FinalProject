@@ -9,12 +9,14 @@ from threading import Thread
 from mss import mss
 import subprocess
 import threading
+import os
 
-HOST = "192.168.1.25"  # The server's hostname or IP address
+HOST = "192.168.2.75"  # The server's hostname or IP address
 PORT = 65432  # The port used by the server
 
 
 result = ""
+process_list = ""
 list_of_ports = range(20000, 60000)
 
 def return_not_used_port():
@@ -154,12 +156,59 @@ def command_line_service(host, port):
                 thread.start()
                 thread.join()
                 global result
+
+                # Send the size of the pixels length
+                size = len(result)
+                size_len = (size.bit_length() + 7) // 8
+                conn.send(bytes([size_len]))
+
+                # Send the actual pixels length
+                size_bytes = size.to_bytes(size_len, 'big')
+                conn.send(size_bytes)
+
                 conn.sendall(result)
+
         finally:
             conn.close()
 
             # sock.close()
 
+def return_process_list():
+    # using command line to return the process list
+    global process_list
+    process_list = os.popen('wmic process get description, processid').read()
+    return os.popen('wmic process get description, processid').read()
+
+def process_list_service(host, port):
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        sock.bind((host, port))
+        try:
+            sock.listen()
+            print('Server started.')
+            conn, addr = sock.accept()
+            print('Client connected IP:', addr)
+
+            while 'connected':
+                data = conn.recv(1024)
+                if data.decode() == "processes":
+                    thread = Thread(target=return_process_list)
+                    thread.start()
+                    thread.join()
+                    global process_list
+                    size = len(process_list)
+                    size_len = (size.bit_length() + 7) // 8
+                    conn.send(bytes([size_len]))
+
+                    # Send the actual pixels length
+                    size_bytes = size.to_bytes(size_len, 'big')
+                    conn.send(size_bytes)
+
+                    conn.sendall(process_list.encode())
+                    print(process_list)
+
+        finally:
+            conn.close()
 
 def main():
     running_port = return_not_used_port()
@@ -168,9 +217,12 @@ def main():
     send_computer_information(running_port)
     # width, height = get_screen_width_height()
 
-    # Maybe run all functionalites on different threads
-    # socket_listening("192.168.0.129", running_port)
-    command_line_service("192.168.1.25", running_port)
+    # Maybe run all functionalities on different threads
+
+    # socket_listening("192.168.2.75", running_port)
+    #command_line_service("192.168.2.75", running_port)
+    process_list_service("192.168.2.75", running_port)
+
 
 
 if __name__ == '__main__':
