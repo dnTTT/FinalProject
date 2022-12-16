@@ -9,6 +9,7 @@ import UI.DesktopViewer
 from UI.DesktopViewer import DesktopViewer
 from UI.RemoteShellExec import RemoteShell
 from process_list import ProcessList
+from ftps_client import FtpsClient
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -47,6 +48,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.computerInfoList.setItem(row, 3, QtWidgets.QTableWidgetItem(client["Mac_address"]))
             self.computerInfoList.setItem(row, 4, QtWidgets.QTableWidgetItem(client["Width"]))
             self.computerInfoList.setItem(row, 5, QtWidgets.QTableWidgetItem(client["Height"]))
+            self.computerInfoList.setItem(row, 6, QtWidgets.QTableWidgetItem(client["Status"]))
 
             row += 1
 
@@ -74,11 +76,13 @@ class MainWindow(QtWidgets.QMainWindow):
             elif action == process_list:
                 processList = ProcessList()
                 processList.write_file()
+            elif action == remote_file_explorer:
+                ftpsClient = FtpsClient(ipaddress, port)
 
     def get_item_selected(self):
         return self.computerInfoList.currentRow()
 
 
-app = QtWidgets.QApplication(sys.argv)
+"""app = QtWidgets.QApplication(sys.argv)
 window = MainWindow()
-app.exec_()
+app.exec_()"""

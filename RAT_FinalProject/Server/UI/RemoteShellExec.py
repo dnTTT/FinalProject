@@ -13,6 +13,7 @@ class RemoteShell(QtWidgets.QWidget):
         self.txtCommand.returnPressed.connect(self.update_text_field_result)
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.s.connect(("192.168.2.75", 6666))
+        self.s.sendall("command_line".encode())
         self.data = ""
 
     def recvall(self, conn, length):
@@ -35,6 +36,7 @@ class RemoteShell(QtWidgets.QWidget):
             else:
                 self.txtResult.append(f"Sending command: {command}")
                 encoded_data = command.encode()
+
                 self.s.sendall(encoded_data)
 
                 #self.data = self.s.recv(1024)

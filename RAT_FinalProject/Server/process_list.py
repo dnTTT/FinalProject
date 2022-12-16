@@ -1,4 +1,5 @@
 import socket
+import win32api
 
 class ProcessList:
     def __init__(self):
@@ -28,5 +29,5 @@ class ProcessList:
         self.data = self.recvall(self.s, size)
         with open('processList.txt', 'w') as f:
             f.write(self.data.decode())
-            print("Done writing the file")
+            win32api.MessageBox(0, 'Completed', 'Finished writing to the file')
             f.close()

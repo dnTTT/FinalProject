@@ -43,7 +43,7 @@ class DesktopViewer:
         height = ""
         for monitor in get_monitors():
             # print(str(monitor))
-            if str(monitor.is_primary) == "False":
+            if str(monitor.is_primary) == "True":
                 width = monitor.width
                 height = monitor.height
 
@@ -59,6 +59,7 @@ class DesktopViewer:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
             try:
                 sock.connect((self.ip_address, self.port))
+                sock.sendall("remote_desktop".encode())
                 while watching:
                     for event in pygame.event.get():
                         if event.type == pygame.QUIT:
