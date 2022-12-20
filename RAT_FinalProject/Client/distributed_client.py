@@ -17,6 +17,15 @@ from pyftpdlib.servers import FTPServer
 from pyftpdlib.authorizers import WindowsAuthorizer
 import pyftpdlib.handlers
 from OpenSSL import SSL
+import re
+import tkinter as tk
+from tkinter import *
+from tkinter import messagebox as mb
+
+import pystray
+from pystray import MenuItem, Menu
+from PIL import Image
+
 
 HOST = "192.168.2.75"  # The server's hostname or IP address
 PORT = 65432  # The port used by the server
@@ -48,23 +57,27 @@ def start_listening_for_commands(running_port):
 
 
 def send_computer_information(running_port):
-    #context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
-    #context.load_verify_locations('../certificates2/public.pem')
+    context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+    context.load_verify_locations('../certificates2/server.crt')
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
-        #with context.wrap_socket(sock, server_hostname="HOST") as ssock:
-            #print(ssock.version())
-            #ssock.connect((HOST, PORT))
-            sock.connect((HOST, PORT))
-            hostname = socket.getfqdn()
-            # Wait to see if workes with outside lan connection
-            ip_address = socket.gethostbyname(hostname)
-            mac_address = gma()
-            width, height = get_screen_width_height()
-            data_to_send = [hostname, ip_address, str(running_port), mac_address, str(width), str(height)]
-            encoded_data = '||'.join(data_to_send).encode()
-            sock.sendall(encoded_data)
-            sock.close()
+        # with context.wrap_socket(sock, server_hostname="HOST") as ssock:
+        ssl_sock = ssl.wrap_socket(sock,
+                                   ca_certs="../certificates2/server.crt",
+                                   cert_reqs=ssl.CERT_REQUIRED)
+        # print(ssock.version())
+        ssl_sock.connect((HOST, PORT))
+        # sock.connect((HOST, PORT))
+        # hostname = socket.getfqdn()
+        # Wait to see if workes with outside lan connection
+        # ip_address = socket.gethostbyname(hostname)
+        ip_address = return_ip_address()
+        mac_address = gma()
+        width, height = get_screen_width_height()
+        data_to_send = [ip_address, str(running_port), mac_address, str(width), str(height)]
+        encoded_data = '||'.join(data_to_send).encode()
+        ssl_sock.sendall(encoded_data)
+        ssl_sock.close()
 
 
 def get_screen_width_height():
@@ -72,8 +85,7 @@ def get_screen_width_height():
     height = ""
     for monitor in get_monitors():
         # print(str(monitor))
-        # FOR TESTING THE PRIMARY MONITOR IS FALSE ( SECOND SCREEN )
-        if str(monitor.is_primary) == "True":
+        if str(monitor.is_primary) == "False":
             width = monitor.width
             height = monitor.height
 
@@ -181,6 +193,19 @@ def command_line_service(host, port):
         finally:
             conn.close()
 
+
+def return_ip_address():
+    # value = os.popen('ipconfig | findstr "inet 192" | findstr /V "Gateway"').read()
+    # remote_dots = re.sub(r'[^0-9.]', '', value)
+    # ip_address = re.sub(r'^.*?I', 'I', remote_dots)
+
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(("8.8.8.8", 80))
+    ipaddress = s.getsockname()[0]
+    s.close()
+    return ipaddress
+
+
 def return_process_list():
     # using command line to return the process list
     global process_list
@@ -219,6 +244,7 @@ def process_list_service(host, port):
         finally:
             conn.close()
 
+
 def sftp_server_start(conn, ipaddress, port):
     ## Create DummyUsers to not use windowsAuth
     authorizer = WindowsAuthorizer(allowed_users=["Shw"])
@@ -234,10 +260,9 @@ def sftp_server_start(conn, ipaddress, port):
     server.serve_forever()
 
 
-
 def handle_connections_for_functionalities(host, port):
-    #context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-    #context.load_cert_chain('/path/to/private.pem', '/path/to/privateKey.key')
+    # context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+    # context.load_cert_chain('/path/to/private.pem', '/path/to/privateKey.key')
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -246,22 +271,21 @@ def handle_connections_for_functionalities(host, port):
             sock.listen(5)
             print('Server started.')
             while 'connected':
-                #with context.wrap_socket(sock, server_side=True) as ssock:
-                    #conn, addr = ssock.accept()
-                    conn, addr = sock.accept()
-                    print('Client connected IP:', addr)
-                    data = conn.recv(1024)
-                    if data.decode() == "remote_desktop":
-                        if not 'connected':
-                            conn.close()
+                # with context.wrap_socket(sock, server_side=True) as ssock:
+                # conn, addr = ssock.accept()
+                conn, addr = sock.accept()
+                print('Client connected IP:', addr)
+                data = conn.recv(1024)
+                if data.decode() == "remote_desktop":
+                    width, height = get_screen_width_height()
+                    thread = Thread(target=retreive_screen, args=(conn, width, height))
+                    thread.start()
 
-                        print('Client connected IP:', addr)
-                        width, height = get_screen_width_height()
-                        thread = Thread(target=retreive_screen, args=(conn, width, height))
-                        thread.start()
-
-                    elif data.decode() == "command_line":
+                elif data.decode() == "command_line":
+                    while True:
                         command = conn.recv(1024)
+                        if command.decode() == "close":
+                            break
                         thread = Thread(target=run_command, args=(command,))
                         thread.start()
                         thread.join()
@@ -278,50 +302,110 @@ def handle_connections_for_functionalities(host, port):
 
                         conn.sendall(result)
 
-                    elif data.decode() == "processes":
-                        thread = Thread(target=return_process_list)
+                elif data.decode() == "processes":
+                    thread = Thread(target=return_process_list)
+                    thread.start()
+                    thread.join()
+                    global process_list
+                    size = len(process_list)
+                    size_len = (size.bit_length() + 7) // 8
+                    conn.send(bytes([size_len]))
+
+                    # Send the actual pixels length
+                    size_bytes = size.to_bytes(size_len, 'big')
+                    conn.send(size_bytes)
+
+                    conn.sendall(process_list.encode())
+
+                elif data.decode() == "sftp_server":
+                    try:
+
+                        thread = Thread(target=sftp_server_start(conn, host, "2221"))
                         thread.start()
                         thread.join()
-                        global process_list
-                        size = len(process_list)
-                        size_len = (size.bit_length() + 7) // 8
-                        conn.send(bytes([size_len]))
+                    except Exception as e:
+                        logging.error(traceback.format_exc())
 
-                        # Send the actual pixels length
-                        size_bytes = size.to_bytes(size_len, 'big')
-                        conn.send(size_bytes)
-
-                        conn.sendall(process_list.encode())
-                        print(process_list)
-
-                    elif data.decode() == "sftp_server":
-                        try:
-
-                            thread = Thread(target=sftp_server_start(conn, host, "2221"))
-                            thread.start()
-                            thread.join()
-
-
-                        except Exception as e:
-                            logging.error(traceback.format_exc())
+        except socket.timeout:
+            print("")
 
         finally:
-            conn.close()
+            print("asdad")
+            #conn.close()
+
+
+def policies_handle_data():
+    data_policy_text = ""
+    with open('Datapolicy.txt') as f:
+        lines = f.readlines()
+
+    for line in lines:
+        data_policy_text += line
+
+    def data_protection():
+        res = mb.askquestion("Data protection policy",
+                             data_policy_text)
+
+        if res == 'yes':
+            root.destroy()
+
+        else:
+            mb.showinfo('Refused', 'Without accepting the consent policies it is not possible to use the program')
+            root.destroy()
+            exit()
+
+    root = tk.Tk()
+    root.option_add('*Dialog.msg.font', 'Helvetica 24')
+    canvas = tk.Canvas(root,
+                       width=200,
+                       height=200)
+
+    canvas.pack()
+    b = Button(root,
+               text='Review policy data',
+               command=data_protection)
+
+    canvas.create_window(100, 100,
+                         window=b)
+
+    root.option_clear()
+    root.mainloop()
+
+
+def StrayIcon():
+    def exit_action(icon):
+        icon.visible = False
+        close_program(icon)
+
+    def setup(icon):
+        icon.visible = True
+
+    def init_icon():
+        icon = pystray.Icon('mon')
+        icon.menu = Menu(
+            MenuItem('Exit', lambda: exit_action(icon)),
+        )
+        icon.icon = Image.open('s.png')
+        icon.title = 'SBN'
+
+        icon.run(setup)
+
+    init_icon()
+    return
+
+def close_program(icon):
+    icon.stop()
+    os._exit(1)
 
 def main():
+    icon_manager = threading.Thread(target=StrayIcon)
+    icon_manager.start()
     running_port = return_not_used_port()
-    running_port = 6666
-
-    # RUN THREAD (with connection timeout and retry)
+    #running_port = 6666
+    policies_handle_data()
     send_computer_information(running_port)
-    # width, height = get_screen_width_height()
-
-    # Maybe run all functionalities on different threads
-
-    #socket_listening("192.168.2.75", running_port)
-    #command_line_service("192.168.2.75", running_port)
-    #process_list_service("0.0.0.0", running_port)
-    handle_connections_for_functionalities("192.168.2.75", running_port)
+    ip_address = return_ip_address()
+    handle_connections_for_functionalities(ip_address, running_port)
 
 if __name__ == '__main__':
     main()

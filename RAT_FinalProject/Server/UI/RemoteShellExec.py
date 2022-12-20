@@ -16,6 +16,9 @@ class RemoteShell(QtWidgets.QWidget):
         self.s.sendall("command_line".encode())
         self.data = ""
 
+    def closeEvent(self, event):
+        self.s.sendall("close".encode())
+        print("closed")
     def recvall(self, conn, length):
         """ Retrieve all bytes. """
 

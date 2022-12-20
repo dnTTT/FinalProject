@@ -1,0 +1,55 @@
+Data Protection Policy
+
+Introduction:
+
+SecurityByNoobz is committed to protecting the privacy and security of personal data. This policy outlines our practices and procedures for collecting, using, and storing personal data. It applies to all employees, contractors, and third parties who handle personal data on behalf of SecurityByNoobz.
+
+Scope:
+
+This policy applies to all personal data collected, used, and stored by SecurityByNoobz. Personal data includes any information that can be used to identify an individual, such as name, address, phone number, email address, ip address, mac address and financial information.
+
+Data Collection:
+
+SecurityByNoobz will only collect personal data that is necessary for the purposes of our business. Before collecting personal data, we will explain the purpose for which it will be used and obtain the individual's consent.
+
+Data Use:
+
+SecurityByNoobz will only use personal data for the purposes for which it was collected. We will not use personal data for any other purpose without the individual's consent.
+The data collected that is essential for the program to work correctly:
+    - Computer's ip address
+    - Computer's mac address
+
+Data Storage:
+
+SecurityByNoobz will store personal data in a secure manner, using appropriate technical and organizational measures to protect it from unauthorized access, disclosure, or misuse.
+
+Data Retention:
+
+SecurityByNoobz will only retain personal data for as long as necessary to fulfill the purposes for which it was collected.
+
+Data Sharing:
+
+SecurityByNoobz will not share personal data with third parties without the individual's consent, unless required by law.
+
+Data Access and Correction:
+
+Individuals have the right to access and correct their personal data.SecurityByNoobz will provide individuals with access to their personal data upon request and will take reasonable steps to correct any inaccuracies.
+
+Data Security Breaches:
+
+In the event of a security breach that may have resulted in the unauthorized access, disclosure, or misuse of personal data, SecurityByNoobz will notify affected individuals and take appropriate steps to mitigate any harm.
+
+
+
+Program Use:
+
+SecurityByNoobz is providing a remote desktop software that will allow access to the individual's computer for security audits. It will be possible to access the files on the computer, interact with the computer's screen,
+execute powershell commands and view the processes running on the individual's computer. After the security audit, the program will stop execution and in case there is a need for further
+support there will be the need to accept the conditions again.
+
+Contact:
+
+If you have any questions or concerns about this policy, or if you would like to access or correct your personal data, please contact henr31z4@easv365.dk .
+
+
+Do you accept this terms?

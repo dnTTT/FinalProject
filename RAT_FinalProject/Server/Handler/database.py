@@ -38,7 +38,7 @@ class Database(object):
 
     @staticmethod
     def new_update_connection(collection, data):
-        find_query_host_ip = {"Hostname": data["Hostname"], "Mac_address": data["Mac_address"]}
+        find_query_host_ip = {"Mac_address": data["Mac_address"]}
         length, documents = Database.find(collection, find_query_host_ip)
         if length > 0:
             Database.update(find_query_host_ip, data)

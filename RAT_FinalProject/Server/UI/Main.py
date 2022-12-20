@@ -42,13 +42,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.computerInfoList.setRowCount(len(data))
 
         for client in data:
-            self.computerInfoList.setItem(row, 0, QtWidgets.QTableWidgetItem(client["Hostname"]))
-            self.computerInfoList.setItem(row, 1, QtWidgets.QTableWidgetItem(client["Ip_address"]))
-            self.computerInfoList.setItem(row, 2, QtWidgets.QTableWidgetItem(client["Running_port"]))
-            self.computerInfoList.setItem(row, 3, QtWidgets.QTableWidgetItem(client["Mac_address"]))
-            self.computerInfoList.setItem(row, 4, QtWidgets.QTableWidgetItem(client["Width"]))
-            self.computerInfoList.setItem(row, 5, QtWidgets.QTableWidgetItem(client["Height"]))
-            self.computerInfoList.setItem(row, 6, QtWidgets.QTableWidgetItem(client["Status"]))
+            self.computerInfoList.setItem(row, 0, QtWidgets.QTableWidgetItem(client["Ip_address"]))
+            self.computerInfoList.setItem(row, 1, QtWidgets.QTableWidgetItem(client["Running_port"]))
+            self.computerInfoList.setItem(row, 2, QtWidgets.QTableWidgetItem(client["Mac_address"]))
+            self.computerInfoList.setItem(row, 3, QtWidgets.QTableWidgetItem(client["Width"]))
+            self.computerInfoList.setItem(row, 4, QtWidgets.QTableWidgetItem(client["Height"]))
+            self.computerInfoList.setItem(row, 5, QtWidgets.QTableWidgetItem(client["Status"]))
 
             row += 1
 
@@ -60,14 +59,15 @@ class MainWindow(QtWidgets.QMainWindow):
             run_command_line = contextMenu.addAction("Command line")
             process_list = contextMenu.addAction("Process list")
             remote_file_explorer = contextMenu.addAction("Remote file explorer")
+            delete_client_information = contextMenu.addAction("Delete client's information")
             action = contextMenu.exec_(self.mapToParent(pos))
 
             """ Getting info needed for the remote desktop viewer (ipaddress, port, width, height) """
 
-            ipaddress = self.computerInfoList.item(selected_row, 1).text()
-            port = self.computerInfoList.item(selected_row, 2).text()
-            width = self.computerInfoList.item(selected_row, 4).text()
-            height = self.computerInfoList.item(selected_row, 5).text()
+            ipaddress = self.computerInfoList.item(selected_row, 0).text()
+            port = self.computerInfoList.item(selected_row, 1).text()
+            width = self.computerInfoList.item(selected_row, 3).text()
+            height = self.computerInfoList.item(selected_row, 4).text()
             if action == remote_desktop:
                 dv = DesktopViewer(ipaddress, port, width, height)
             elif action == run_command_line:
@@ -78,6 +78,8 @@ class MainWindow(QtWidgets.QMainWindow):
                 processList.write_file()
             elif action == remote_file_explorer:
                 ftpsClient = FtpsClient(ipaddress, port)
+            elif action == delete_client_information:
+                print("")
 
     def get_item_selected(self):
         return self.computerInfoList.currentRow()

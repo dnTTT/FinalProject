@@ -2,32 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b425db2-9550-4944-8882-e3a8dcec1532" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/Client/keycert.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/FTP_Server.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/ftps_client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/certificate.crt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/certificates/certificate.crt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/certificates/private.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/certificates/privateKey.key" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/certificates/public.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/certificates2/certificate.crt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/certificates2/private.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/certificates2/privateKey.key" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/certificates2/public.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/key.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/privateKey.key" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/server.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/Client/Datapolicy.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/Client/s.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/client_data_delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/socket_timeout_implementation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/certificates2/server.crt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/certificates2/server.csr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/certificates2/server.key" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Client/distributed_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Client/distributed_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/FTP_Server.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/Handler/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/Handler/database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/DesktopViewer.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/DesktopViewer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/MainWindow.ui" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/MainWindow.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/RemoteShellExec.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/RemoteShellExec.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/Test.ui" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/Test.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/processList.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/process_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/process_list.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/processList.txt" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/processList.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/run_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/run_server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/certificate.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/certificates2/certificate.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/certificates2/private.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/certificates2/privateKey.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/certificates2/public.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/cmd_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/cmd_test2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/command_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/key.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/privateKey.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/server.pem" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,43 +58,24 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Shw/Documents/GitHub/Rat_FinalProject_Repo/RAT_FinalProject&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Shw/Documents/GitHub/Rat_FinalProject_Repo/RAT_FinalProject/Client&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Shw\Documents\GitHub\Rat_FinalProject_Repo\RAT_FinalProject\Client" />
       <recent name="C:\Users\Shw\Documents\GitHub\Rat_FinalProject_Repo\RAT_FinalProject" />
       <recent name="C:\Users\Shw\Documents\GitHub\Rat_FinalProject_Repo\RAT_FinalProject\certificates2" />
       <recent name="C:\Users\Shw\Documents\GitHub\Rat_FinalProject_Repo\RAT_FinalProject\certificates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Shw\Documents\GitHub\Rat_FinalProject_Repo\RAT_FinalProject\Client" />
+      <recent name="C:\Users\Shw\Documents\GitHub\Rat_FinalProject_Repo\RAT_FinalProject\certificates2" />
       <recent name="C:\Users\Shw\Documents\GitHub\Rat_FinalProject_Repo\RAT_FinalProject" />
       <recent name="C:\Users\Shw\Documents\GitHub\Rat_FinalProject_Repo\RAT_FinalProject\Server" />
     </key>
   </component>
   <component name="RunManager" selected="Python.distributed_client">
-    <configuration name="FTP_Server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Rat_FinalProject_Repo" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RAT_FinalProject" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RAT_FinalProject/FTP_Server.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="distributed_client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Rat_FinalProject_Repo" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -135,27 +118,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="openExplorerTest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Rat_FinalProject_Repo" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RAT_FinalProject" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RAT_FinalProject/openExplorerTest.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="run_server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Rat_FinalProject_Repo" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -177,13 +139,55 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="tes (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Rat_FinalProject_Repo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RAT_FinalProject/Client" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RAT_FinalProject/Client/tes.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Rat_FinalProject_Repo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RAT_FinalProject/Server" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\Shw\Documents\GitHub\Rat_FinalProject_Repo\RAT_FinalProject\Client\tes.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.distributed_client" />
         <item itemvalue="Python.run_server" />
+        <item itemvalue="Python.tes (1)" />
+        <item itemvalue="Python.tes" />
         <item itemvalue="Python.input_test" />
-        <item itemvalue="Python.openExplorerTest" />
-        <item itemvalue="Python.FTP_Server" />
       </list>
     </recent_temporary>
   </component>
@@ -213,26 +217,43 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/RAT_FinalProject/Server/UI/Main.py</url>
-          <line>76</line>
-          <option name="timeStamp" value="19" />
+          <url>file://$PROJECT_DIR$/RAT_FinalProject/Client/distributed_client.py</url>
+          <line>197</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/RAT_FinalProject/Server/UI/DesktopViewer.py</url>
+          <line>20</line>
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/RAT_FinalProject/Client/distributed_client.py</url>
-          <line>252</line>
-          <option name="timeStamp" value="22" />
+          <line>279</line>
+          <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/RAT_FinalProject/Client/distributed_client.py</url>
-          <line>263</line>
-          <option name="timeStamp" value="23" />
+          <line>278</line>
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/RAT_FinalProject/Server/UI/Main.py</url>
-          <line>79</line>
-          <option name="timeStamp" value="25" />
+          <url>file://$PROJECT_DIR$/RAT_FinalProject/Server/UI/DesktopViewer.py</url>
+          <line>46</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/RAT_FinalProject/Client/distributed_client.py</url>
+          <line>283</line>
+          <option name="timeStamp" value="52" />
         </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
 </project>

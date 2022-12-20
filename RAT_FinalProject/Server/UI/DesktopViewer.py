@@ -10,9 +10,6 @@ from socket import error as socket_error
 import traceback
 import logging
 
-WIDTH = 1920
-HEIGHT = 1080
-
 
 class DesktopViewer:
     ip_address = ""
@@ -37,17 +34,6 @@ class DesktopViewer:
                 return data
             buf += data
         return buf
-
-    def get_screen_width_height(self):
-        width = ""
-        height = ""
-        for monitor in get_monitors():
-            # print(str(monitor))
-            if str(monitor.is_primary) == "True":
-                width = monitor.width
-                height = monitor.height
-
-        return width, height
 
     def main(self):
         pygame.init()

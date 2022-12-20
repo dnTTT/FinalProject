@@ -99,11 +99,6 @@ selection-background-color: rgb(40, 40, 40);</string>
      </attribute>
      <column>
       <property name="text">
-       <string>Hostname</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
        <string>Ip Address</string>
       </property>
      </column>
