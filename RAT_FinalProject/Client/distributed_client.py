@@ -27,7 +27,7 @@ from pystray import MenuItem, Menu
 from PIL import Image
 
 
-HOST = "192.168.2.75"  # The server's hostname or IP address
+HOST = "192.168.2.72"  # The server's hostname or IP address
 PORT = 65432  # The port used by the server
 
 result = ""
@@ -57,14 +57,21 @@ def start_listening_for_commands(running_port):
 
 
 def send_computer_information(running_port):
-    context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
-    context.load_verify_locations('../certificates2/server.crt')
+    #context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+    #context.load_verify_locations('../certificates2/server.crt')
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
         # with context.wrap_socket(sock, server_hostname="HOST") as ssock:
-        ssl_sock = ssl.wrap_socket(sock,
+        """ssl_sock = ssl.wrap_socket(sock,
                                    ca_certs="../certificates2/server.crt",
-                                   cert_reqs=ssl.CERT_REQUIRED)
+                                   cert_reqs=ssl.CERT_REQUIRED)"""
+        context = ssl.create_default_context(ssl.Purpose.SERVER_AUTH)
+        context.check_hostname = False
+        context.verify_mode = ssl.CERT_NONE
+
+        context.options |= ssl.OP_NO_TLSv1 | ssl.OP_NO_TLSv1_1
+
+        ssl_sock = context.wrap_socket(sock, server_hostname=HOST)
         # print(ssock.version())
         ssl_sock.connect((HOST, PORT))
         # sock.connect((HOST, PORT))
@@ -402,7 +409,7 @@ def main():
     icon_manager.start()
     running_port = return_not_used_port()
     #running_port = 6666
-    policies_handle_data()
+    #policies_handle_data()
     send_computer_information(running_port)
     ip_address = return_ip_address()
     handle_connections_for_functionalities(ip_address, running_port)

@@ -10,7 +10,7 @@ import threading
 from contextlib import closing
 import ssl
 
-HOST = "192.168.2.75"
+HOST = "192.168.2.72"
 PORT = 65432
 
 def listen_to_computer_info():
@@ -29,10 +29,15 @@ def listen_to_computer_info():
             while 'connected':
                 #with context.wrap_socket(sock, server_side=True) as ssock:
                 client_sock, client_address = sock.accept()
-                ssl_client_sock = ssl.wrap_socket(client_sock,
+                context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+                context.load_cert_chain(certfile="mycert.pem")
+                context.options |= ssl.OP_NO_TLSv1 | ssl.OP_NO_TLSv1_1
+                context.set_ciphers('AES256+ECDH:AES256+EDH')
+                ssl_client_sock = context.wrap_socket(client_sock, server_side=True)
+                """ssl_client_sock = ssl.wrap_socket(client_sock,
                                                   server_side=True,
                                                   certfile="../certificates2/server.crt",
-                                                  keyfile="../certificates2/server.key")
+                                                  keyfile="../certificates2/server.key")"""
 
                 #client_sock, addr = sock.accept()
 
