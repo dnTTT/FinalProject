@@ -71,10 +71,10 @@ class MainWindow(QtWidgets.QMainWindow):
             if action == remote_desktop:
                 dv = DesktopViewer(ipaddress, port, width, height)
             elif action == run_command_line:
-                self.remote_window = RemoteShell()
+                self.remote_window = RemoteShell(ipaddress,port)
                 self.remote_window.show()
             elif action == process_list:
-                processList = ProcessList()
+                processList = ProcessList(ipaddress,port)
                 processList.write_file()
             elif action == remote_file_explorer:
                 ftpsClient = FtpsClient(ipaddress, port)

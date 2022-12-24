@@ -15,6 +15,7 @@ import threading
 import os
 from pyftpdlib.servers import FTPServer
 from pyftpdlib.authorizers import WindowsAuthorizer
+from pyftpdlib.authorizers import DummyAuthorizer
 import pyftpdlib.handlers
 from OpenSSL import SSL
 import re
@@ -72,16 +73,16 @@ def send_computer_information(running_port):
         context.options |= ssl.OP_NO_TLSv1 | ssl.OP_NO_TLSv1_1
 
         ssl_sock = context.wrap_socket(sock, server_hostname=HOST)
-        # print(ssock.version())
         ssl_sock.connect((HOST, PORT))
-        # sock.connect((HOST, PORT))
-        # hostname = socket.getfqdn()
-        # Wait to see if workes with outside lan connection
-        # ip_address = socket.gethostbyname(hostname)
+        print("connected")
         ip_address = return_ip_address()
+        print(ip_address)
         mac_address = gma()
+        print(mac_address)
         width, height = get_screen_width_height()
+        print(width, height)
         data_to_send = [ip_address, str(running_port), mac_address, str(width), str(height)]
+        print(data_to_send)
         encoded_data = '||'.join(data_to_send).encode()
         ssl_sock.sendall(encoded_data)
         ssl_sock.close()
@@ -253,9 +254,11 @@ def process_list_service(host, port):
 
 
 def sftp_server_start(conn, ipaddress, port):
-    ## Create DummyUsers to not use windowsAuth
-    authorizer = WindowsAuthorizer(allowed_users=["Shw"])
-    authorizer.override_user("Shw", homedir='C:/', perm="elradfmw")
+    authorizer = DummyAuthorizer()
+    authorizer.add_user("Shw", "Pracc999.", "C:/", perm="elradfmw")
+    authorizer.remove_user("anonymous")
+    #authorizer = WindowsAuthorizer(allowed_users=["Shw"])
+    #authorizer.override_user("Shw", homedir='C:/', perm="elradfmw")
     handler = pyftpdlib.handlers.TLS_FTPHandler
     handler.certfile = 'keycert.pem'
     handler.authorizer = authorizer
@@ -364,8 +367,8 @@ def policies_handle_data():
     root = tk.Tk()
     root.option_add('*Dialog.msg.font', 'Helvetica 24')
     canvas = tk.Canvas(root,
-                       width=200,
-                       height=200)
+                       width=100,
+                       height=100)
 
     canvas.pack()
     b = Button(root,
@@ -408,7 +411,6 @@ def main():
     icon_manager = threading.Thread(target=StrayIcon)
     icon_manager.start()
     running_port = return_not_used_port()
-    #running_port = 6666
     #policies_handle_data()
     send_computer_information(running_port)
     ip_address = return_ip_address()

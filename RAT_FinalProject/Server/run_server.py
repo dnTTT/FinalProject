@@ -43,7 +43,8 @@ def listen_to_computer_info():
 
                 data = ssl_client_sock.recv(1024)
                 # client_sock.sendall(b'Done')
-                win32api.MessageBox(0, f'New client connected: {client_address}', 'New client')
+                print(len(data))
+                print(data.decode())
                 if len(data) > 0:
                     # Decode information received, and split by ||
                     ip_address, running_port, mac_address, width, height = data.decode("Utf-8").split("||")
@@ -53,6 +54,7 @@ def listen_to_computer_info():
                     find_active_devices_thread = threading.Thread(target=find_active_devices)
                     find_active_devices_thread.start()
                     update_on_new_connection()
+                win32api.MessageBox(0, f'New client connected: {client_address[0]}', 'New client')
 
 
         finally:

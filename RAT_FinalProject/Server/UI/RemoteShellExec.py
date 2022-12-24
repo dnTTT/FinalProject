@@ -6,13 +6,15 @@ import socket
 import logging
 
 class RemoteShell(QtWidgets.QWidget):
-    def __init__(self):
+    def __init__(self, ip_address, port):
         super(RemoteShell, self).__init__()
+        self.ip_address = ip_address
+        self.port = int(port)
         uic.loadUi('UI/Test.ui', self)
         self.show()
         self.txtCommand.returnPressed.connect(self.update_text_field_result)
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.s.connect(("192.168.2.75", 6666))
+        self.s.connect((self.ip_address, self.port))
         self.s.sendall("command_line".encode())
         self.data = ""
 
