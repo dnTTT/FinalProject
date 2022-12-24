@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b425db2-9550-4944-8882-e3a8dcec1532" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/UnitTests/UnitTests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RobotTesting/Robot_Process_List_Testing.robot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RobotTesting/process_list_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Client/distributed_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Client/distributed_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/RemoteShellExec.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/RemoteShellExec.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/processList.txt" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/processList.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/process_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/process_list.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/run_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/run_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/socket_timeout_implementation.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/socket_timeout_implementation.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +176,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
