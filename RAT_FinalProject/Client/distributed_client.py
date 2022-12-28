@@ -411,7 +411,7 @@ def main():
     icon_manager = threading.Thread(target=StrayIcon)
     icon_manager.start()
     running_port = return_not_used_port()
-    policies_handle_data()
+    #policies_handle_data()
     send_computer_information(running_port)
     ip_address = return_ip_address()
     handle_connections_for_functionalities(ip_address, running_port)

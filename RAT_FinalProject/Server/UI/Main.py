@@ -10,6 +10,7 @@ from UI.DesktopViewer import DesktopViewer
 from UI.RemoteShellExec import RemoteShell
 from process_list import ProcessList
 from ftps_client import FtpsClient
+from Handler.encryption import EncryptionHandler
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -20,6 +21,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.computerInfoList.setColumnWidth(2, 135)
         self.computerInfoList.setColumnWidth(3, 135)
         self.computerInfoList.setColumnWidth(5, 135)
+        self.computerInfoList.setColumnHidden(6, True)
+
         self.show()
         # self.computerInfoList.setContextMenuPolicy(Qt.CustomContextMenu)
         # self.computerInfoList.customContextMenuRequested.connect(self.right_click_context_menu)
@@ -48,6 +51,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.computerInfoList.setItem(row, 3, QtWidgets.QTableWidgetItem(client["Width"]))
             self.computerInfoList.setItem(row, 4, QtWidgets.QTableWidgetItem(client["Height"]))
             self.computerInfoList.setItem(row, 5, QtWidgets.QTableWidgetItem(client["Status"]))
+            self.computerInfoList.setItem(row, 6, QtWidgets.QTableWidgetItem(str(client["_id"])))
+
 
             row += 1
 

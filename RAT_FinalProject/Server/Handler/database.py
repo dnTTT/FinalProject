@@ -21,6 +21,11 @@ class Database(object):
         Database.COLLECTION.insert_one(data)
 
     @staticmethod
+    def delete(collection, uid):
+        Database.COLLECTION = Database.DATABASE[collection]
+        Database.COLLECTION.delete_one({'_id': uid})
+
+    @staticmethod
     def find(collection, query):
         Database.COLLECTION = Database.DATABASE[collection]
         length = Database.COLLECTION.count_documents(query)
@@ -38,11 +43,15 @@ class Database(object):
 
     @staticmethod
     def new_update_connection(collection, data):
-        find_query_host_ip = {"Mac_address": data["Mac_address"]}
-        length, documents = Database.find(collection, find_query_host_ip)
-        if length > 0:
-            Database.update(find_query_host_ip, data)
+        if data["_id"] != None:
+            find_query_host_ip = {"_id": data["_id"]}
+            length, documents = Database.find(collection, find_query_host_ip)
+            if length > 0:
+                Database.update(find_query_host_ip, data)
+            else:
+                Database.insert(collection, data)
         else:
+            del data["_id"]
             Database.insert(collection, data)
 
 
