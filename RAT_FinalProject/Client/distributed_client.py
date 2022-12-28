@@ -28,7 +28,7 @@ from pystray import MenuItem, Menu
 from PIL import Image
 
 
-HOST = "192.168.2.72"  # The server's hostname or IP address
+HOST = "192.168.1.173"  # The server's hostname or IP address
 PORT = 65432  # The port used by the server
 
 result = ""
@@ -104,7 +104,7 @@ def retreive_screen(conn, width, height):
     with mss() as mss_instance:
         recording_area = {'top': 0, 'left': 0, 'width': width, 'height': height}
         # Retrieve monitor instead of a specific area
-        monitor_1 = mss_instance.monitors[1]
+        monitor_1 = mss_instance.monitors[2]
 
         while "recording":
             # Grab the screen with the dimensions of the recording_area
@@ -253,10 +253,10 @@ def process_list_service(host, port):
             conn.close()
 
 
-def sftp_server_start(conn, ipaddress, port):
+def ftps_server_start(conn, ipaddress, port):
     authorizer = DummyAuthorizer()
     authorizer.add_user("Shw", "Pracc999.", "C:/", perm="elradfmw")
-    authorizer.remove_user("anonymous")
+    #authorizer.remove_user("anonymous")
     #authorizer = WindowsAuthorizer(allowed_users=["Shw"])
     #authorizer.override_user("Shw", homedir='C:/', perm="elradfmw")
     handler = pyftpdlib.handlers.TLS_FTPHandler
@@ -327,10 +327,10 @@ def handle_connections_for_functionalities(host, port):
 
                     conn.sendall(process_list.encode())
 
-                elif data.decode() == "sftp_server":
+                elif data.decode() == "ftps_server":
                     try:
 
-                        thread = Thread(target=sftp_server_start(conn, host, "2221"))
+                        thread = Thread(target=ftps_server_start(conn, host, "2221"))
                         thread.start()
                         thread.join()
                     except Exception as e:
@@ -340,7 +340,7 @@ def handle_connections_for_functionalities(host, port):
             print("")
 
         finally:
-            print("asdad")
+            print("disconnected")
             #conn.close()
 
 
@@ -361,14 +361,14 @@ def policies_handle_data():
 
         else:
             mb.showinfo('Refused', 'Without accepting the consent policies it is not possible to use the program')
-            root.destroy()
-            exit()
+            os._exit(1)
+
 
     root = tk.Tk()
     root.option_add('*Dialog.msg.font', 'Helvetica 24')
     canvas = tk.Canvas(root,
-                       width=100,
-                       height=100)
+                       width=200,
+                       height=200)
 
     canvas.pack()
     b = Button(root,
@@ -411,7 +411,7 @@ def main():
     icon_manager = threading.Thread(target=StrayIcon)
     icon_manager.start()
     running_port = return_not_used_port()
-    #policies_handle_data()
+    policies_handle_data()
     send_computer_information(running_port)
     ip_address = return_ip_address()
     handle_connections_for_functionalities(ip_address, running_port)

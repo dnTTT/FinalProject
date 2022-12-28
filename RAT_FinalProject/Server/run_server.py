@@ -10,7 +10,7 @@ import threading
 from contextlib import closing
 import ssl
 
-HOST = "192.168.2.72"
+HOST = "192.168.1.173"
 PORT = 65432
 
 def listen_to_computer_info():

@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b425db2-9550-4944-8882-e3a8dcec1532" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/RobotTesting/Robot_Process_List_Testing.robot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RobotTesting/process_list_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/UnitTests/UnitTests_Database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Client/distributed_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Client/distributed_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/ftps_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/ftps_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/processList.txt" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/processList.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/run_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/run_server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/UnitTests/UnitTests.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/UnitTests/UnitTests.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +55,7 @@
       <recent name="C:\Users\Shw\Documents\GitHub\Rat_FinalProject_Repo\RAT_FinalProject\Server" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests in UnitTests.py">
+  <component name="RunManager" selected="Python.distributed_client">
     <configuration name="TestClient" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Rat_FinalProject_Repo" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -65,27 +69,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RAT_FinalProject/Server/TestClient.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestServer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Rat_FinalProject_Repo" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RAT_FinalProject/Server" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RAT_FinalProject/Server/TestServer.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -136,6 +119,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests in UnitTests_Database.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Rat_FinalProject_Repo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RAT_FinalProject/UnitTests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/RAT_FinalProject/UnitTests/UnitTests_Database.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests in UnitTests.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Rat_FinalProject_Repo" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -152,11 +149,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests in UnitTests.py" />
         <item itemvalue="Python.distributed_client" />
         <item itemvalue="Python.run_server" />
+        <item itemvalue="Python tests.Python tests in UnitTests_Database.py" />
+        <item itemvalue="Python tests.Python tests in UnitTests.py" />
         <item itemvalue="Python.TestClient" />
-        <item itemvalue="Python.TestServer" />
       </list>
     </recent_temporary>
   </component>
