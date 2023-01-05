@@ -2,15 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b425db2-9550-4944-8882-e3a8dcec1532" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/Handler/encryption.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Rat_FinalProject_Repo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Rat_FinalProject_Repo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RAT_FinalProject/UnitTests/UnitTests_Socket.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Client/distributed_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Client/distributed_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/Handler/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/Handler/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/MainWindow.ui" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/UI/MainWindow.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/Handler/encryption.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/Handler/encryption.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/TestClient.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/TestServer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/encryptedfile.bin" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/encryptedfile.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RAT_FinalProject/Server/run_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/RAT_FinalProject/Server/run_server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RobotTesting/Robot_Process_List_Testing.robot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RobotTesting/log.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RobotTesting/output.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RobotTesting/process_list_service.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RobotTesting/report.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,17 +43,17 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Shw/Documents/GitHub/Rat_FinalProject_Repo/RAT_FinalProject/Server&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Shw/Documents/GitHub/Rat_FinalProject_Repo/RAT_FinalProject/UnitTests&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Shw\Documents\GitHub\Rat_FinalProject_Repo\RAT_FinalProject\UnitTests" />
       <recent name="C:\Users\Shw\Documents\GitHub\Rat_FinalProject_Repo\RAT_FinalProject\Server" />
       <recent name="C:\Users\Shw\Documents\GitHub\Rat_FinalProject_Repo\RAT_FinalProject\Client" />
       <recent name="C:\Users\Shw\Documents\GitHub\Rat_FinalProject_Repo\RAT_FinalProject" />
       <recent name="C:\Users\Shw\Documents\GitHub\Rat_FinalProject_Repo\RAT_FinalProject\certificates2" />
-      <recent name="C:\Users\Shw\Documents\GitHub\Rat_FinalProject_Repo\RAT_FinalProject\certificates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Shw\Documents\GitHub\Rat_FinalProject_Repo\RAT_FinalProject\Client" />
@@ -58,7 +62,7 @@
       <recent name="C:\Users\Shw\Documents\GitHub\Rat_FinalProject_Repo\RAT_FinalProject\Server" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.run_server">
+  <component name="RunManager" selected="Python.distributed_client">
     <configuration name="distributed_client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Rat_FinalProject_Repo" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -136,7 +140,7 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests in UnitTests.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests in UnitTests_Socket.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Rat_FinalProject_Repo" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -146,17 +150,17 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/RAT_FinalProject/UnitTests/UnitTests.py&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/RAT_FinalProject/UnitTests/UnitTests_Socket.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.run_server" />
         <item itemvalue="Python.distributed_client" />
+        <item itemvalue="Python tests.Python tests in UnitTests_Socket.py" />
+        <item itemvalue="Python.run_server" />
         <item itemvalue="Python.encryption" />
         <item itemvalue="Python tests.Python tests in UnitTests_Database.py" />
-        <item itemvalue="Python tests.Python tests in UnitTests.py" />
       </list>
     </recent_temporary>
   </component>
@@ -208,17 +212,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/RAT_FinalProject/Server/run_server.py</url>
-          <line>109</line>
+          <line>100</line>
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/RAT_FinalProject/Server/run_server.py</url>
-          <line>107</line>
+          <line>98</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/RAT_FinalProject/Server/run_server.py</url>
-          <line>108</line>
+          <line>99</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="robot-line">

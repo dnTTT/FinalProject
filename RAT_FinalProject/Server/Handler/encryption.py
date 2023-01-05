@@ -42,13 +42,11 @@ class EncryptionHandler:
         ciphertext, tag = cipher.encrypt_and_digest(encoded_data)
 
         encrypted_data = salt + cipher.nonce + tag + ciphertext
-        #encrypted_message_hexa = binascii.hexlify(encrypted_message)
         return encrypted_data
 
     def decrypt(self, encrypted_data):
         temp_file = "encryptedfile.bin"
         file_out = open(temp_file, "wb")
-        #encrypted_message = binascii.unhexlify(hexa_image)
         file_out.write(encrypted_data)
         file_out.close()
         file_in = open(temp_file, "rb")

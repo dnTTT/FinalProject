@@ -17,9 +17,6 @@ PORT = 65432
 
 def listen_to_computer_info():
     # SSLContext.wrap not working because hostname mismatch (on dynamic local ip), update later with a web server
-    #context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-    #context.load_cert_chain('../certificates2/server.crt', '../certificates2/server.key')
-
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         sock.bind((HOST, PORT))
@@ -29,7 +26,6 @@ def listen_to_computer_info():
             print('Server started.')
 
             while 'connected':
-                #with context.wrap_socket(sock, server_side=True) as ssock:
                 client_sock, client_address = sock.accept()
                 context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
                 context.load_cert_chain(certfile="mycert.pem")
@@ -41,12 +37,7 @@ def listen_to_computer_info():
                                                   certfile="../certificates2/server.crt",
                                                   keyfile="../certificates2/server.key")"""
 
-                #client_sock, addr = sock.accept()
-
                 data = ssl_client_sock.recv(1024)
-                # client_sock.sendall(b'Done')
-                print(len(data))
-                print(data.decode())
                 if len(data) > 0:
                     # Decode information received, and split by ||
                     ip_address, running_port, mac_address, width, height = data.decode("Utf-8").split("||")

