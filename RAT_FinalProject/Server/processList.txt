@@ -80,8 +80,6 @@ Memory Compression                                3360
 
 svchost.exe                                       3408       
 
-svchost.exe                                       3444       
-
 svchost.exe                                       3452       
 
 svchost.exe                                       3492       
@@ -91,8 +89,6 @@ WmiPrvSE.exe                                      3776
 svchost.exe                                       3892       
 
 dasHost.exe                                       3980       
-
-svchost.exe                                       4060       
 
 SbieSvc.exe                                       3196       
 
@@ -138,8 +134,6 @@ LenovoUtilityService.exe                          5392
 
 NahimicService.exe                                5400       
 
-LenovoVantageService.exe                          5408       
-
 svchost.exe                                       5416       
 
 svchost.exe                                       5424       
@@ -151,8 +145,6 @@ nvcontainer.exe                                   5440
 sqlwriter.exe                                     5448       
 
 UDClientService.exe                               5456       
-
-lghub_updater.exe                                 5464       
 
 RtkAudUService64.exe                              5472       
 
@@ -202,21 +194,13 @@ svchost.exe                                       11512
 
 unsecapp.exe                                      12880      
 
-NisSrv.exe                                        13332      
-
 svchost.exe                                       13772      
 
 svchost.exe                                       15052      
 
-MoUsoCoreWorker.exe                               14480      
-
 dllhost.exe                                       15832      
 
 SecurityHealthService.exe                         17752      
-
-LenovoVantage-(VantageCoreAddin).exe              18260      
-
-svchost.exe                                       14888      
 
 svchost.exe                                       12072      
 
@@ -248,289 +232,271 @@ svchost.exe                                       5716
 
 MpCopyAccelerator.exe                             4880       
 
-audiodg.exe                                       28108      
-
-svchost.exe                                       17104      
-
-csrss.exe                                         33304      
-
-winlogon.exe                                      35852      
-
-fontdrvhost.exe                                   34844      
-
-dwm.exe                                           36512      
-
-NVDisplay.Container.exe                           9724       
-
-svchost.exe                                       10500      
-
-gameinputsvc.exe                                  10460      
-
-atieclxx.exe                                      35932      
-
-nvcontainer.exe                                   1324       
-
-nvcontainer.exe                                   24288      
-
-sihost.exe                                        17064      
-
-svchost.exe                                       15720      
-
-svchost.exe                                       10680      
-
-taskhostw.exe                                     30260      
-
-explorer.exe                                      30612      
-
-NahimicSvc64.exe                                  2468       
-
-NahimicSvc32.exe                                  26544      
-
-svchost.exe                                       20916      
-
-Widgets.exe                                       17860      
-
-SearchHost.exe                                    30892      
-
-StartMenuExperienceHost.exe                       2740       
-
-RuntimeBroker.exe                                 9232       
-
-RuntimeBroker.exe                                 12920      
-
-FnHotkeyUtility.exe                               15372      
-
-svchost.exe                                       20228      
-
-unsecapp.exe                                      19120      
-
-dllhost.exe                                       17960      
-
-WhatsApp.exe                                      28496      
-
-NVIDIA Web Helper.exe                             13524      
-
-ctfmon.exe                                        2968       
-
-conhost.exe                                       12800      
-
-PhoneExperienceHost.exe                           2472       
-
-RuntimeBroker.exe                                 12424      
-
-nvsphelper64.exe                                  15104      
-
-NVIDIA Share.exe                                  4376       
-
-LenovoVantage-(LenovoGamingSystemAddin).exe       26796      
-
-NVIDIA Share.exe                                  36396      
-
-RuntimeBroker.exe                                 4688       
-
-NVIDIA Share.exe                                  17916      
-
-unsecapp.exe                                      17592      
-
-TextInputHost.exe                                 29416      
-
-SecurityHealthSystray.exe                         9656       
-
-RtkAudUService64.exe                              23860      
-
-vgtray.exe                                        34652      
-
-ApplicationFrameHost.exe                          26304      
-
-MoNotificationUx.exe                              28772      
-
-nahimicNotifSys.exe                               30300      
-
-Nahimic3.exe                                      33616      
-
-RuntimeBroker.exe                                 33992      
-
-svchost.exe                                       31112      
-
-Lenovo.Modern.ImController.PluginHost.Device.exe  16828      
-
-svchost.exe                                       20588      
-
-ShellExperienceHost.exe                           34016      
-
-svchost.exe                                       6788       
-
-Discord.exe                                       32748      
-
-Discord.exe                                       29508      
-
-Discord.exe                                       11944      
-
-Discord.exe                                       14596      
-
-Discord.exe                                       34996      
-
-Discord.exe                                       6700       
-
-firefox.exe                                       5272       
-
-firefox.exe                                       28848      
-
-firefox.exe                                       22300      
-
-firefox.exe                                       21152      
-
-firefox.exe                                       14936      
-
-firefox.exe                                       4400       
-
-firefox.exe                                       28924      
-
-firefox.exe                                       9408       
-
-firefox.exe                                       28968      
-
-firefox.exe                                       5680       
-
-plugin-container.exe                              28692      
-
-firefox.exe                                       8640       
-
-firefox.exe                                       36148      
-
-firefox.exe                                       25604      
-
-svchost.exe                                       7024       
-
-LenovoVantage-(DeviceSettingsSystemAddin).exe     25288      
-
-explorer.exe                                      21416      
-
-firefox.exe                                       15480      
-
-firefox.exe                                       2508       
-
-firefox.exe                                       17624      
-
-firefox.exe                                       36716      
-
-SDXHelper.exe                                     5984       
-
-firefox.exe                                       26332      
-
-RuntimeBroker.exe                                 36332      
-
-firefox.exe                                       14840      
-
-dllhost.exe                                       28780      
-
-RuntimeBroker.exe                                 9568       
-
-firefox.exe                                       27216      
-
-firefox.exe                                       17664      
-
-steam.exe                                         9100       
-
-steamwebhelper.exe                                3488       
-
-steamservice.exe                                  28980      
-
-steamwebhelper.exe                                18768      
-
-steamwebhelper.exe                                32900      
-
-steamwebhelper.exe                                22088      
-
-steamwebhelper.exe                                13052      
-
-steamwebhelper.exe                                8724       
-
-steamwebhelper.exe                                36276      
-
 svchost.exe                                       3520       
 
-SystemSettings.exe                                19900      
+svchost.exe                                       22160      
 
-UserOOBEBroker.exe                                19828      
+svchost.exe                                       28160      
 
-firefox.exe                                       25208      
+MoUsoCoreWorker.exe                               36332      
 
-firefox.exe                                       23444      
+svchost.exe                                       22548      
 
-firefox.exe                                       5884       
+csrss.exe                                         14588      
 
-pycharm64.exe                                     16844      
+winlogon.exe                                      32668      
 
-fsnotifier.exe                                    18688      
+fontdrvhost.exe                                   10392      
 
-conhost.exe                                       29952      
+dwm.exe                                           12112      
 
-firefox.exe                                       27520      
+gameinputsvc.exe                                  14476      
 
-RiotClientServices.exe                            28220      
+atieclxx.exe                                      23476      
 
-RiotClientCrashHandler.exe                        32264      
+NVDisplay.Container.exe                           28828      
 
-Blitz.exe                                         22372      
+nvcontainer.exe                                   30392      
 
-Blitz.exe                                         17460      
+sihost.exe                                        17692      
 
-Blitz.exe                                         3420       
+nvcontainer.exe                                   16976      
 
-Blitz.exe                                         21884      
+svchost.exe                                       32028      
 
-WmiPrvSE.exe                                      32240      
+svchost.exe                                       31788      
 
-Blitz.exe                                         21880      
+taskhostw.exe                                     36724      
 
-LeagueClient.exe                                  632        
+explorer.exe                                      6356       
 
-LeagueCrashHandler.exe                            384        
+NahimicSvc64.exe                                  11940      
 
-LeagueClientUx.exe                                25228      
+NahimicSvc32.exe                                  16664      
 
-LeagueClientUxRender.exe                          26292      
+svchost.exe                                       25384      
 
-LenovoVantage-(LenovoGamingUserAddin).exe         12392      
+Widgets.exe                                       35688      
 
-LeagueClientUxRender.exe                          12348      
+SearchHost.exe                                    12316      
 
-LeagueClientUxRender.exe                          23384      
+StartMenuExperienceHost.exe                       33828      
 
-LeagueClientUxRender.exe                          29284      
+RuntimeBroker.exe                                 35352      
 
-LeagueClientUxRender.exe                          13696      
+RuntimeBroker.exe                                 27704      
 
-GameBarPresenceWriter.exe                         30960      
+svchost.exe                                       26556      
 
-svchost.exe                                       34356      
+NVIDIA Web Helper.exe                             21664      
 
-firefox.exe                                       1680       
+FnHotkeyUtility.exe                               7664       
 
-firefox.exe                                       24056      
+conhost.exe                                       22840      
 
-firefox.exe                                       14660      
+unsecapp.exe                                      10140      
 
-svchost.exe                                       8880       
+dllhost.exe                                       1132       
 
-SearchProtocolHost.exe                            23140      
+ctfmon.exe                                        20464      
 
-python.exe                                        21660      
+nvsphelper64.exe                                  28088      
 
-conhost.exe                                       13028      
+NVIDIA Share.exe                                  35512      
 
-python.exe                                        34500      
+NVIDIA Share.exe                                  2280       
 
-python.exe                                        17300      
+NVIDIA Share.exe                                  12592      
 
-conhost.exe                                       25560      
+TextInputHost.exe                                 29112      
 
-python.exe                                        9060       
+SecurityHealthSystray.exe                         27908      
 
-cmd.exe                                           36048      
+unsecapp.exe                                      30212      
 
-WMIC.exe                                          33520      
+RtkAudUService64.exe                              32312      
+
+vgtray.exe                                        17452      
+
+ApplicationFrameHost.exe                          796        
+
+nahimicNotifSys.exe                               29552      
+
+WhatsApp.exe                                      17612      
+
+RuntimeBroker.exe                                 16468      
+
+ShellExperienceHost.exe                           22008      
+
+RuntimeBroker.exe                                 12384      
+
+svchost.exe                                       27936      
+
+SystemSettingsBroker.exe                          6964       
+
+svchost.exe                                       23196      
+
+svchost.exe                                       28200      
+
+svchost.exe                                       24448      
+
+MoNotificationUx.exe                              9116       
+
+NisSrv.exe                                        29496      
+
+SDXHelper.exe                                     33160      
+
+steam.exe                                         35784      
+
+steamwebhelper.exe                                32296      
+
+steamservice.exe                                  35340      
+
+steamwebhelper.exe                                1632       
+
+steamwebhelper.exe                                16992      
+
+steamwebhelper.exe                                10284      
+
+steamwebhelper.exe                                32728      
+
+steamwebhelper.exe                                24980      
+
+steamwebhelper.exe                                29776      
+
+LockApp.exe                                       13472      
+
+RuntimeBroker.exe                                 12236      
+
+firefox.exe                                       20692      
+
+firefox.exe                                       17620      
+
+firefox.exe                                       3800       
+
+firefox.exe                                       10768      
+
+firefox.exe                                       32256      
+
+firefox.exe                                       10236      
+
+firefox.exe                                       7288       
+
+firefox.exe                                       20768      
+
+Lenovo.Modern.ImController.PluginHost.Device.exe  12412      
+
+LenovoVantageService.exe                          32180      
+
+LenovoVantage-(VantageCoreAddin).exe              22264      
+
+LenovoVantage-(LenovoGamingSystemAddin).exe       34600      
+
+LenovoVantage-(DeviceSettingsSystemAddin).exe     8276       
+
+LenovoVantage-(LenovoServiceBridgeAddin).exe      9292       
+
+firefox.exe                                       35500      
+
+firefox.exe                                       20384      
+
+firefox.exe                                       5312       
+
+firefox.exe                                       11364      
+
+svchost.exe                                       19760      
+
+pycharm64.exe                                     18108      
+
+fsnotifier.exe                                    23212      
+
+conhost.exe                                       20084      
+
+python.exe                                        34272      
+
+conhost.exe                                       33012      
+
+python.exe                                        30568      
+
+python.exe                                        33396      
+
+conhost.exe                                       9828       
+
+powershell.exe                                    2968       
+
+firefox.exe                                       29168      
+
+dllhost.exe                                       20004      
+
+MongoDBCompass.exe                                25904      
+
+MongoDBCompass.exe                                19716      
+
+MongoDBCompass.exe                                31168      
+
+MongoDBCompass.exe                                10024      
+
+MongoDBCompass.exe                                28480      
+
+LenovoVantage-(LenovoGamingUserAddin).exe         34208      
+
+PhoneExperienceHost.exe                           18624      
+
+dllhost.exe                                       24080      
+
+firefox.exe                                       27928      
+
+lghub_updater.exe                                 30828      
+
+svchost.exe                                       23840      
+
+svchost.exe                                       13616      
+
+audiodg.exe                                       8868       
+
+firefox.exe                                       5780       
+
+python.exe                                        35980      
+
+python.exe                                        17900      
+
+firefox.exe                                       22748      
+
+svchost.exe                                       18056      
+
+svchost.exe                                       19628      
+
+cmd.exe                                           23016      
+
+conhost.exe                                       18804      
+
+WmiPrvSE.exe                                      23092      
+
+svchost.exe                                       12856      
+
+firefox.exe                                       12524      
+
+Notepad.exe                                       11972      
+
+python.exe                                        34140      
+
+conhost.exe                                       20812      
+
+python.exe                                        11112      
+
+python.exe                                        28012      
+
+conhost.exe                                       31976      
+
+python.exe                                        6292       
+
+smartscreen.exe                                   22128      
+
+SearchProtocolHost.exe                            26444      
+
+cmd.exe                                           36160      
+
+WMIC.exe                                          764        
 
 
 

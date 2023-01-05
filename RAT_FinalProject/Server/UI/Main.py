@@ -10,6 +10,7 @@ from UI.DesktopViewer import DesktopViewer
 from UI.RemoteShellExec import RemoteShell
 from process_list import ProcessList
 from ftps_client import FtpsClient
+from Handler.encryption import EncryptionHandler
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -20,6 +21,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.computerInfoList.setColumnWidth(2, 135)
         self.computerInfoList.setColumnWidth(3, 135)
         self.computerInfoList.setColumnWidth(5, 135)
+        self.computerInfoList.setColumnHidden(6, True)
+
         self.show()
         # self.computerInfoList.setContextMenuPolicy(Qt.CustomContextMenu)
         # self.computerInfoList.customContextMenuRequested.connect(self.right_click_context_menu)
@@ -48,6 +51,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.computerInfoList.setItem(row, 3, QtWidgets.QTableWidgetItem(client["Width"]))
             self.computerInfoList.setItem(row, 4, QtWidgets.QTableWidgetItem(client["Height"]))
             self.computerInfoList.setItem(row, 5, QtWidgets.QTableWidgetItem(client["Status"]))
+            self.computerInfoList.setItem(row, 6, QtWidgets.QTableWidgetItem(str(client["_id"])))
+
 
             row += 1
 
@@ -71,10 +76,10 @@ class MainWindow(QtWidgets.QMainWindow):
             if action == remote_desktop:
                 dv = DesktopViewer(ipaddress, port, width, height)
             elif action == run_command_line:
-                self.remote_window = RemoteShell()
+                self.remote_window = RemoteShell(ipaddress,port)
                 self.remote_window.show()
             elif action == process_list:
-                processList = ProcessList()
+                processList = ProcessList(ipaddress,port)
                 processList.write_file()
             elif action == remote_file_explorer:
                 ftpsClient = FtpsClient(ipaddress, port)

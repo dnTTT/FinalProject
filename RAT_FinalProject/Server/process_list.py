@@ -2,10 +2,12 @@ import socket
 import win32api
 
 class ProcessList:
-    def __init__(self):
+    def __init__(self, ip_address, port):
+        self.ip_address = ip_address
+        self.port = int(port)
         self.result = ""
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.s.connect(("192.168.2.75", 6666))
+        self.s.connect((self.ip_address, self.port))
         self.data = ""
 
     def recvall(self, conn, length):

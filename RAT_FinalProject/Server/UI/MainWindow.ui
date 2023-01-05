@@ -133,6 +133,11 @@ selection-background-color: rgb(40, 40, 40);</string>
        <string>Status</string>
       </property>
      </column>
+     <column>
+      <property name="text">
+       <string>Id</string>
+      </property>
+     </column>
     </widget>
    </widget>
   </widget>

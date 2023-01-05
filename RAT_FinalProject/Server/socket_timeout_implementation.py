@@ -31,4 +31,4 @@ while True:
             except socket.error:
                 sleep(2)
 
-clientSocket.close();  
+clientSocket.close()

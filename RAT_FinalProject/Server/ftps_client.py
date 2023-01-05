@@ -18,7 +18,7 @@ class FtpsClient:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
             try:
                 sock.connect((self.ip_address, self.port))
-                sock.sendall("sftp_server".encode())
+                sock.sendall("ftps_server".encode())
                 data = sock.recv(1024)
                 if data.decode() == "Started":
                     # message to be displayed
